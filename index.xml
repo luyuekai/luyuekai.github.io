@@ -6,8 +6,204 @@
     <description>Recent content on 听风流水的测试博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 15 Jun 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 26 Mar 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://luyuekai.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>hugo本主题的语法说明</title>
+      <link>https://luyuekai.github.io/2016/03/hugo%E6%9C%AC%E4%B8%BB%E9%A2%98%E7%9A%84%E8%AF%AD%E6%B3%95%E8%AF%B4%E6%98%8E/</link>
+      <pubDate>Sat, 26 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/2016/03/hugo%E6%9C%AC%E4%B8%BB%E9%A2%98%E7%9A%84%E8%AF%AD%E6%B3%95%E8%AF%B4%E6%98%8E/</guid>
+      <description>&lt;h1 id=&#34;tranquilpeak&#34;&gt;Tranquilpeak&lt;/h1&gt;
+
+&lt;h1 id=&#34;version-0-2-2-alpha&#34;&gt;Version : 0.2.2-ALPHA&lt;/h1&gt;
+
+&lt;h1 id=&#34;author-thibaud-leprêtre&#34;&gt;Author : Thibaud Leprêtre&lt;/h1&gt;
+
+&lt;h1 id=&#34;i-strongly-recommend-you-to-use-a-cdn-to-speed-up-loading-of-pages&#34;&gt;I STRONGLY recommend you to use a CDN to speed up loading of pages.&lt;/h1&gt;
+
+&lt;h1 id=&#34;there-is-many-free-cdn-like-cloudinary-or-you-can-also-use-indirectly&#34;&gt;There is many free CDN like Cloudinary or you can also use indirectly&lt;/h1&gt;
+
+&lt;h1 id=&#34;by-using-services-like-google-photos&#34;&gt;by using services like Google Photos.&lt;/h1&gt;
+
+&lt;h1 id=&#34;if-you-want-to-store-images-yourself-please-read-this-guidelines&#34;&gt;If you want to store images yourself, please read this guidelines:&lt;/h1&gt;
+
+&lt;h1 id=&#34;for-users-if-you-only-use-this-theme-put-your-images-directly-in-source-assets-images-folder&#34;&gt;For users, if you only use this theme, put your images directly in &lt;code&gt;source/assets/images&lt;/code&gt; folder&lt;/h1&gt;
+
+&lt;h1 id=&#34;but-if-you-want-to-add-local-images-you-can-put-your-images-directly-in-source-assets-images-folder&#34;&gt;But if you want to add local images, you can put your images directly in &lt;code&gt;source/assets/images&lt;/code&gt; folder&lt;/h1&gt;
+
+&lt;h1 id=&#34;for-developpers-if-you-modify-this-theme-put-your-images-in-source-images-folder-and&#34;&gt;For developpers, if you modify this theme, put your images in &lt;code&gt;source/images&lt;/code&gt; folder and&lt;/h1&gt;
+
+&lt;h1 id=&#34;use-grunt-task-build-to-synchronize-assets&#34;&gt;use grunt task &lt;code&gt;build&lt;/code&gt; to synchronize assets&lt;/h1&gt;
+
+&lt;p&gt;baseurl = &amp;ldquo;&lt;a href=&#34;https://luyuekai.github.io&amp;quot;&#34;&gt;https://luyuekai.github.io&amp;quot;&lt;/a&gt;
+languageCode = &amp;ldquo;zh-cn&amp;rdquo;
+defaultContentLanguage = &amp;ldquo;zh-cn&amp;rdquo;
+title = &amp;ldquo;听风流水的测试博客&amp;rdquo;
+theme = &amp;ldquo;hugo-tranquilpeak-theme&amp;rdquo;
+disqusShortname = &amp;ldquo;hugo-tranquilpeak-theme&amp;rdquo;&lt;/p&gt;
+
+&lt;h1 id=&#34;googleanalytics-ua-123-45&#34;&gt;googleAnalytics = &amp;ldquo;UA-123-45&amp;rdquo;&lt;/h1&gt;
+
+&lt;p&gt;paginate = 7
+canonifyurls = true&lt;/p&gt;
+
+&lt;p&gt;[permalinks]
+  post = &amp;ldquo;/:year/:month/:slug/&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;[taxonomies]
+  tag = &amp;ldquo;tags&amp;rdquo;
+  category = &amp;ldquo;categories&amp;rdquo;
+  archive = &amp;ldquo;archives&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;[author]
+  name = &amp;ldquo;听风流水&amp;rdquo;
+  bio = &amp;ldquo;## &lt;em&gt;在天愿作比翼鸟&lt;/em&gt; 　　　　　　　&lt;em&gt;在地愿为连理枝&lt;/em&gt;&amp;ldquo;
+ #bio = &amp;ldquo;# &lt;code&gt;在天愿作比翼鸟，在地愿为连理枝&lt;/code&gt;&amp;ldquo;
+  job = &amp;ldquo;北京邮电大学&amp;rdquo;
+  location = &amp;ldquo;BeiJing&amp;rdquo;
+  # Your Gravatar email. Overwrite &lt;code&gt;author.picture&lt;/code&gt; everywhere in the blog
+  # gravatarEmail = &amp;ldquo;thibaud.lepretre@gmail.com&amp;rdquo;
+  # Your profile picture
+  # Overwritten by your gravatar image if &lt;code&gt;author.gravatarEmail&lt;/code&gt; is filled
+  picture = &amp;ldquo;&lt;a href=&#34;http://oneumacbh.bkt.clouddn.com/%E5%A5%B3%E5%B8%9D2.jpg&amp;quot;&#34;&gt;http://oneumacbh.bkt.clouddn.com/%E5%A5%B3%E5%B8%9D2.jpg&amp;quot;&lt;/a&gt;
+  # Your Twitter username without the @. E.g : thibaudlepretre
+  # twitter = &amp;ldquo;thibaudlepretre&amp;rdquo;
+  # Your google plus profile id. E.g : +ThibaudLepretre or 114625208755123718311
+  # googlePlus = &amp;ldquo;+ThibaudLepretre&amp;rdquo;&lt;/p&gt;
+
+&lt;h1 id=&#34;menu-configuration&#34;&gt;Menu Configuration&lt;/h1&gt;
+
+&lt;p&gt;[[menu.main]]
+  weight = 0
+  identifier = &amp;ldquo;home&amp;rdquo;
+  name = &amp;ldquo;Home&amp;rdquo;
+  pre = &amp;ldquo;&lt;i class=\&#34;sidebar-button-icon fa fa-lg fa-home\&#34;&gt;&lt;/i&gt;&amp;ldquo;
+  url = &amp;ldquo;/&amp;rdquo;
+[[menu.main]]
+  weight = 1
+  identifier = &amp;ldquo;categories&amp;rdquo;
+  name = &amp;ldquo;Categories&amp;rdquo;
+  pre = &amp;ldquo;&lt;i class=\&#34;sidebar-button-icon fa fa-lg fa-bookmark\&#34;&gt;&lt;/i&gt;&amp;ldquo;
+  url = &amp;ldquo;/categories&amp;rdquo;
+[[menu.main]]
+  weight = 2
+  identifier = &amp;ldquo;tags&amp;rdquo;
+  name = &amp;ldquo;Tags&amp;rdquo;
+  pre = &amp;ldquo;&lt;i class=\&#34;sidebar-button-icon fa fa-lg fa-tags\&#34;&gt;&lt;/i&gt;&amp;ldquo;
+  url = &amp;ldquo;/tags&amp;rdquo;
+[[menu.main]]
+  weight = 3
+  identifier = &amp;ldquo;archives&amp;rdquo;
+  name = &amp;ldquo;Archives&amp;rdquo;
+  pre = &amp;ldquo;&lt;i class=\&#34;sidebar-button-icon fa fa-lg fa-archive\&#34;&gt;&lt;/i&gt;&amp;ldquo;
+  url = &amp;ldquo;/archives&amp;rdquo;
+[[menu.main]]
+  weight = 4
+  identifier = &amp;ldquo;about&amp;rdquo;
+  name = &amp;ldquo;About&amp;rdquo;
+  pre = &amp;ldquo;&lt;i class=\&#34;sidebar-button-icon fa fa-lg fa-question\&#34;&gt;&lt;/i&gt;&amp;ldquo;
+  url = &amp;ldquo;/#about&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;[[menu.links]]
+  weight = 0
+  identifier = &amp;ldquo;github&amp;rdquo;
+  name = &amp;ldquo;GitHub&amp;rdquo;
+  pre = &amp;ldquo;&lt;i class=\&#34;sidebar-button-icon fa fa-lg fa-github\&#34;&gt;&lt;/i&gt;&amp;ldquo;
+  url = &amp;ldquo;&lt;a href=&#34;https://github.com/luyuekai&amp;quot;&#34;&gt;https://github.com/luyuekai&amp;quot;&lt;/a&gt;
+[[menu.links]]
+  weight = 1
+  identifier = &amp;ldquo;stackoverflow&amp;rdquo;
+  name = &amp;ldquo;Stack Overflow&amp;rdquo;
+  pre = &amp;ldquo;&lt;i class=\&#34;sidebar-button-icon fa fa-lg fa-stack-overflow\&#34;&gt;&lt;/i&gt;&amp;ldquo;
+  url = &amp;ldquo;&lt;a href=&#34;https://stackoverflow.com/users/636472/kakawait&amp;quot;&#34;&gt;https://stackoverflow.com/users/636472/kakawait&amp;quot;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;[[menu.misc]]
+  weight = 0
+  identifier = &amp;ldquo;rss&amp;rdquo;
+  name = &amp;ldquo;RSS&amp;rdquo;
+  pre = &amp;ldquo;&lt;i class=\&#34;sidebar-button-icon fa fa-lg fa-rss\&#34;&gt;&lt;/i&gt;&amp;ldquo;
+  url = &amp;ldquo;/index.xml&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;[params]
+  # Customize date format use to render blog post date, categories and other
+  # You must use date format used by Go Time package &lt;a href=&#34;https://golang.org/pkg/time/&#34;&gt;https://golang.org/pkg/time/&lt;/a&gt;
+  # Months (not work with short month like &amp;ldquo;jan&amp;rdquo;, &amp;ldquo;feb&amp;rdquo;, etc) are translated if translation exists on i18n folders
+  # Default format is: January 2, 2006
+  # dateFormat = &amp;ldquo;2 January 2006&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;# Global keywords configuration. Following keywords will be add to every pages
+  # keywords = [&amp;ldquo;development&amp;rdquo;, &amp;ldquo;next-gen&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;# Hide sidebar on all article page to let article take full width to improve reading, and enjoy wide images and cover images. (true: enable, false: disable)
+  clearReading = true&lt;/p&gt;
+
+&lt;p&gt;# Define categories will create hierarchy between parents: &lt;code&gt;categories = [&amp;quot;foo&amp;quot;, &amp;quot;bar&amp;quot;]&lt;/code&gt; will consider &amp;ldquo;bar&amp;rdquo; a sub-category of &amp;ldquo;foo&amp;rdquo;.
+  # If false it will flat categories.
+  hierarchicalCategories = true&lt;/p&gt;
+
+&lt;p&gt;description = &amp;ldquo;听风流水的hugo博客测试&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;# Customization
+  # Define the behavior of the sidebar
+  # 1: Display extra large sidebar on extra large screen, large sidebar on large screen,
+  #    medium sidebar on medium screen and header bar on small screen and
+  # extra large sidebar is swiped on extra large screen and large sidebar on all lower screen (default)
+  # 2: Display large sidebar on large screen, medium sidebar on medium screen and
+  #    header bar on small screen and large sidebar is swiped
+  # 3: Display medium sidebar on large and medium screen and header bar on small screen and
+  #    medium sidebar is swiped
+  # 4: Display header bar on all screens, extra large sidebar is swiped on extra large screen and
+  #    large sidebar is swiped on all lower screens
+  # 5: Display header bar on all screens and large sidebar is swiped on large screen
+  # 6: Display header bar on all screens and medium sidebar is swiped
+  sidebarBehavior = 1&lt;/p&gt;
+
+&lt;p&gt;# Your blog cover picture. I STRONGLY recommend you to use a CDN to speed up loading of pages.
+  # There is many free CDN like Cloudinary or you can also use indirectly
+  # by using services like Google Photos.
+  # Current image is on AWS S3 and delivered by AWS CloudFront.
+  # Otherwise put your image in folder &lt;code&gt;static/_images/&lt;/code&gt; (development)  or in &lt;code&gt;source/assets/images/&lt;/code&gt; if you can&amp;rsquo;t or don&amp;rsquo;t want to build the theme,
+  # and use relative url : &lt;code&gt;your-image.png&lt;/code&gt;
+  coverImage = &amp;ldquo;cover.jpg&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;# Display an image gallery at the end of a post which have photos variables (false: disabled, true: enabled)
+  imageGallery = true&lt;/p&gt;
+
+&lt;p&gt;# Display thumbnail image of each post on index pages (false: disabled, true: enabled)
+  thumbnailImage = true
+  # Display thumbnail image at the right of title in index pages (&lt;code&gt;right&lt;/code&gt;, &lt;code&gt;left&lt;/code&gt; or &lt;code&gt;bottom&lt;/code&gt;)
+  # Set this value to &lt;code&gt;right&lt;/code&gt; if you have old posts to keep the old style on them
+  # and define &lt;code&gt;thumbnailImagePosition&lt;/code&gt; on a post to overwrite this setting
+  thumbnailImagePosition = &amp;ldquo;bottom&amp;rdquo;
+  # Automatically select the cover image or the first photo from the gallery of a post if there is no thumbnail image as the thumbnail image
+  # Set this value to &lt;code&gt;true&lt;/code&gt; if you have old posts that use the cover image or the first photo as the thumbnail image
+  # and set &lt;code&gt;autoThumbnailImage&lt;/code&gt; to &lt;code&gt;false&lt;/code&gt; on a post to overwrite this setting
+  autoThumbnailImage = true&lt;/p&gt;
+
+&lt;p&gt;# Header configuration
+  # The link at the right of the header is customizable
+  # You can add a link (as an icon) at the right of the header instead of the author&amp;rsquo;s gravatar image or author&amp;rsquo;s picture.
+  # By default, author&amp;rsquo;s gravatar or author&amp;rsquo;s picture is displayed.
+  #     url: /#search
+  #     icon: search
+  #     class: st-search-show-outputs
+  [params.header.rightLink]
+    class = &amp;ldquo;&amp;rdquo;
+    icon = &amp;ldquo;&amp;rdquo;
+    url = &amp;ldquo;/#about&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;# Customize like of athor avatar in sidebar
+  # [params.sidebar.profile]
+  #   url = &amp;ldquo;/#about&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;# Customize copyright value &amp;ldquo;© 2016 &lt;CUSTOMIZATION&gt;. All Rights Reserved&amp;rdquo;
+  # [params.footer]
+  #   copyright = &amp;ldquo;&lt;a href=\&#34;https://github.com/kakawait\&#34;&gt;kakawait&lt;/a&gt;&amp;ldquo;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Welcome to Tranquilpeak 0.2.2</title>
