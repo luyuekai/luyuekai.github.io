@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Test on 听风流水的博客</title>
+    <link>https://luyuekai.github.io/categories/test/index.xml</link>
+    <description>Recent content in Test on 听风流水的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <atom:link href="https://luyuekai.github.io/categories/test/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>卢跃凯</title>
+      <link>https://luyuekai.github.io/2016/03/%E5%8D%A2%E8%B7%83%E5%87%AF/</link>
+      <pubDate>Sat, 26 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/2016/03/%E5%8D%A2%E8%B7%83%E5%87%AF/</guid>
+      <description>&lt;p&gt;四月是你的谎言
+&lt;/p&gt;
+
+&lt;p&gt;好好学习,好好coding
+&lt;!--more--&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
