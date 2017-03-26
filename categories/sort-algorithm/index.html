@@ -1,9 +1,5 @@
 
 
-  
-    
-  
-
 
   
 
@@ -20,23 +16,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.18.1">
-    <title>一种流传较广的伪选择排序算法</title>
+    <title>Sort Algorithm</title>
     <meta name="author" content="听风流水">
-    <meta name="keywords" content="算法, 代码">
+    <meta name="keywords" content="">
 
     <link rel="icon" href="https://luyuekai.github.io/favicon.png">
     
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://luyuekai.github.io/categories/sort-algorithm/index.xml">
+    
 
     
-    <meta name="description" content="勿忘初心,奋起直追">
-    <meta property="og:description" content="勿忘初心,奋起直追">
+    <meta name="description" content="听风流水的博客">
+    <meta property="og:description" content="听风流水的博客">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="一种流传较广的伪选择排序算法">
-    <meta property="og:url" content="/2016/03/%E4%B8%80%E7%A7%8D%E6%B5%81%E4%BC%A0%E8%BE%83%E5%B9%BF%E7%9A%84%E4%BC%AA%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+    <meta property="og:title" content="Sort Algorithm">
+    <meta property="og:url" content="/categories/sort-algorithm/">
     <meta property="og:site_name" content="听风流水的博客">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="听风流水的博客">
-    <meta name="twitter:description" content="勿忘初心,奋起直追">
+    <meta name="twitter:description" content="听风流水的博客">
     
     
 
@@ -48,10 +46,6 @@
     
 
     
-      <meta property="og:image" content="http://oneumacbh.bkt.clouddn.com/1857029,105.jpg">
-    
-    
-      <meta property="og:image" content="http://oneumacbh.bkt.clouddn.com/1/1412306,105.jpg">
     
     
 
@@ -74,7 +68,7 @@
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="4">
+      <header id="header" data-behavior="1">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://luyuekai.github.io/">听风流水的博客</a>
@@ -94,7 +88,7 @@
   
 </header>
 
-      <nav id="sidebar" data-behavior="4">
+      <nav id="sidebar" data-behavior="1">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -211,19 +205,35 @@
 </nav>
 
       
-  <div class="post-header-cover
-              text-center
-              "
-       style="background-image:url('http://oneumacbh.bkt.clouddn.com/1/1412306,105.jpg')"
-       data-behavior="4">
+        
+
+      
+      <div id="main" data-behavior="1"
+        class="
+               hasCoverMetaIn
+               ">
+        
+          <section class="postShorten-group main-content-wrap">
+            
+            
+              
+  
     
-      <div class="post-header main-content-wrap text-center">
   
-    <h1 class="post-title" itemprop="headline">
-      一种流传较广的伪选择排序算法
-    </h1>
+
+
   
-  <div class="postShorten-meta post-meta">
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://luyuekai.github.io/2016/03/%E4%B8%80%E7%A7%8D%E6%B5%81%E4%BC%A0%E8%BE%83%E5%B9%BF%E7%9A%84%E4%BC%AA%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+          一种流传较广的伪选择排序算法
+        </a>
+      </h1>
+      <div class="postShorten-meta post-meta">
   
     <time itemprop="datePublished" datetime="2016-03-06T00:00:00Z">
       
@@ -245,174 +255,30 @@
 
 </div>
 
-</div>
-    
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      <p>
+        勿忘初心,奋起直追
+        <br>
+        <a href="https://luyuekai.github.io/2016/03/%E4%B8%80%E7%A7%8D%E6%B5%81%E4%BC%A0%E8%BE%83%E5%B9%BF%E7%9A%84%E4%BC%AA%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="postShorten-excerpt_link link">阅读全文</a>
+        
+      </p>
+    </div>
   </div>
-
-
-      <div id="main" data-behavior="4"
-        class="hasCover
-               hasCoverMetaIn
-               ">
-        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
-          
-          
-          <div class="post-content markdown" itemprop="articleBody">
-            <div class="main-content-wrap">
-              <p>勿忘初心,奋起直追</p>
-
-<p>
-在网上经常看到这种伪选择排序算法,包括自己在第一次编写选择排序时也编写了如下的效率不高的代码:</p>
-
-<pre><code class="language-java">publi class FalseSort {  
-
-public FalseSort(){  
-
-    int a[]={1,54,6,3,78,34,12,45};  
-
-    int temp=0;  
-
-    for(int i=0;i&lt;a.length;i++){  
-
-       for(int j=i+1;j&lt;a.length;j++){  
-
-       if(a[i]&gt;a[j]){  
-
-           temp=a[i];  
-
-           a[i]=a[j];  
-
-           a[j]=temp;  
-
-       }  
-
-       }  
-
-    }  
-
-    for(int i=0;i&lt;a.length;i++)  
-
-       System.out.println(a[i]);     
-
-}  
-
-}
-</code></pre>
-
-<p>在代码第二层<code>for</code>循环中做了一次交换,两层<code>for</code>循环后可能要做<code>n(n-1)/2</code>次交换.
-但在实际的选择排序中,只做n次交换就可以了.真正的选择排序是每次记录最小元素的下标,直到最后才进行交换
-example</p>
-
-<pre><code class="language-java">
-// 选择排序
-    public void selectSort(){
-        int min = 0;
-        long tmp = 0L;
-        for(int i = 0; i &lt; elems -1; i++){
-            min = i;
-            for(int j = i + 1; j &lt; elems; j++) {
-                if(arr[j] &lt; arr[min]) {
-                    min = j;
-                }
-            }
-            tmp = arr[i];
-            arr[i] = arr[min];
-            arr[min] = tmp;
-        }
-    }
-</code></pre>
-              
-            </div>
-          </div>
-          <div id="post-footer" class="post-footer main-content-wrap">
-            
-              
-                
-                
-                  <div class="post-footer-tags">
-                    <span class="text-color-light text-small">标签</span><br/>
-                    
-  <a class="tag tag--primary tag--small" href="https://luyuekai.github.io/tags/%E7%AE%97%E6%B3%95/">算法</a>
-
-  <a class="tag tag--primary tag--small" href="https://luyuekai.github.io/tags/%E9%94%99%E8%AF%AF/">错误</a>
-
-                  </div>
-                
-              
-            
-            <div class="post-actions-wrap">
-  <nav>
-    <ul class="post-actions post-action-nav">
-      
-        <li class="post-action">
-          
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://luyuekai.github.io/2016/03/%E6%9C%AC%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E7%9A%AE%E8%82%A4%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/" data-tooltip="本博客使用皮肤配置说明">
-          
-            <i class="fa fa-angle-left"></i>
-            <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
-          </a>
-        </li>
-        <li class="post-action">
-          
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://luyuekai.github.io/2015/06/welcome-to-tranquilpeak-0.2.2/" data-tooltip="Welcome to Tranquilpeak 0.2.2">
-          
-            <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
-            <i class="fa fa-angle-right"></i>
-          </a>
-        </li>
-      
-    </ul>
-  </nav>
-  <ul class="post-actions post-action-share">
-    
-      <li class="post-action hide-lg hide-md hide-sm">
-        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
-          <i class="fa fa-share-alt"></i>
-        </a>
-      </li>
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fluyuekai.github.io%2f2016%2f03%2f%25E4%25B8%2580%25E7%25A7%258D%25E6%25B5%2581%25E4%25BC%25A0%25E8%25BE%2583%25E5%25B9%25BF%25E7%259A%2584%25E4%25BC%25AA%25E9%2580%2589%25E6%258B%25A9%25E6%258E%2592%25E5%25BA%258F%25E7%25AE%2597%25E6%25B3%2595%2f">
-          <i class="fa fa-google-plus"></i>
-        </a>
-      </li>
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fluyuekai.github.io%2f2016%2f03%2f%25E4%25B8%2580%25E7%25A7%258D%25E6%25B5%2581%25E4%25BC%25A0%25E8%25BE%2583%25E5%25B9%25BF%25E7%259A%2584%25E4%25BC%25AA%25E9%2580%2589%25E6%258B%25A9%25E6%258E%2592%25E5%25BA%258F%25E7%25AE%2597%25E6%25B3%2595%2f">
-          <i class="fa fa-facebook-official"></i>
-        </a>
-      </li>
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fluyuekai.github.io%2f2016%2f03%2f%25E4%25B8%2580%25E7%25A7%258D%25E6%25B5%2581%25E4%25BC%25A0%25E8%25BE%2583%25E5%25B9%25BF%25E7%259A%2584%25E4%25BC%25AA%25E9%2580%2589%25E6%258B%25A9%25E6%258E%2592%25E5%25BA%258F%25E7%25AE%2597%25E6%25B3%2595%2f">
-          <i class="fa fa-twitter"></i>
-        </a>
-      </li>
-    
-    
-      <li class="post-action">
-        <a class="post-action-btn btn btn--default" href="#disqus_thread">
-          <i class="fa fa-comment-o"></i>
-        </a>
-      </li>
-    
-    <li class="post-action">
-      
-        <a class="post-action-btn btn btn--default" href="#">
-      
-        <i class="fa fa-list"></i>
-      </a>
-    </li>
-  </ul>
-</div>
-
+  
+    <a href="https://luyuekai.github.io/2016/03/%E4%B8%80%E7%A7%8D%E6%B5%81%E4%BC%A0%E8%BE%83%E5%B9%BF%E7%9A%84%E4%BC%AA%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="http://oneumacbh.bkt.clouddn.com/1857029,105.jpg"/>
+      </div>
+    </a>
+  
+</article>
 
             
-              
-                <div id="disqus_thread">
-  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-              
             
-          </div>
-        </article>
+
+          </section>
+        
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2017 听风流水. All Rights Reserved
@@ -420,92 +286,6 @@ example</p>
 </footer>
 
       </div>
-      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
-        <div class="post-actions-wrap">
-  <nav>
-    <ul class="post-actions post-action-nav">
-      
-        <li class="post-action">
-          
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://luyuekai.github.io/2016/03/%E6%9C%AC%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E7%9A%AE%E8%82%A4%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/" data-tooltip="本博客使用皮肤配置说明">
-          
-            <i class="fa fa-angle-left"></i>
-            <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
-          </a>
-        </li>
-        <li class="post-action">
-          
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://luyuekai.github.io/2015/06/welcome-to-tranquilpeak-0.2.2/" data-tooltip="Welcome to Tranquilpeak 0.2.2">
-          
-            <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
-            <i class="fa fa-angle-right"></i>
-          </a>
-        </li>
-      
-    </ul>
-  </nav>
-  <ul class="post-actions post-action-share">
-    
-      <li class="post-action hide-lg hide-md hide-sm">
-        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
-          <i class="fa fa-share-alt"></i>
-        </a>
-      </li>
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fluyuekai.github.io%2f2016%2f03%2f%25E4%25B8%2580%25E7%25A7%258D%25E6%25B5%2581%25E4%25BC%25A0%25E8%25BE%2583%25E5%25B9%25BF%25E7%259A%2584%25E4%25BC%25AA%25E9%2580%2589%25E6%258B%25A9%25E6%258E%2592%25E5%25BA%258F%25E7%25AE%2597%25E6%25B3%2595%2f">
-          <i class="fa fa-google-plus"></i>
-        </a>
-      </li>
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fluyuekai.github.io%2f2016%2f03%2f%25E4%25B8%2580%25E7%25A7%258D%25E6%25B5%2581%25E4%25BC%25A0%25E8%25BE%2583%25E5%25B9%25BF%25E7%259A%2584%25E4%25BC%25AA%25E9%2580%2589%25E6%258B%25A9%25E6%258E%2592%25E5%25BA%258F%25E7%25AE%2597%25E6%25B3%2595%2f">
-          <i class="fa fa-facebook-official"></i>
-        </a>
-      </li>
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fluyuekai.github.io%2f2016%2f03%2f%25E4%25B8%2580%25E7%25A7%258D%25E6%25B5%2581%25E4%25BC%25A0%25E8%25BE%2583%25E5%25B9%25BF%25E7%259A%2584%25E4%25BC%25AA%25E9%2580%2589%25E6%258B%25A9%25E6%258E%2592%25E5%25BA%258F%25E7%25AE%2597%25E6%25B3%2595%2f">
-          <i class="fa fa-twitter"></i>
-        </a>
-      </li>
-    
-    
-      <li class="post-action">
-        <a class="post-action-btn btn btn--default" href="#disqus_thread">
-          <i class="fa fa-comment-o"></i>
-        </a>
-      </li>
-    
-    <li class="post-action">
-      
-        <a class="post-action-btn btn btn--default" href="#">
-      
-        <i class="fa fa-list"></i>
-      </a>
-    </li>
-  </ul>
-</div>
-
-
-      </div>
-      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
-  <ul class="share-options">
-    <li class="share-option">
-      <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fluyuekai.github.io%2f2016%2f03%2f%25E4%25B8%2580%25E7%25A7%258D%25E6%25B5%2581%25E4%25BC%25A0%25E8%25BE%2583%25E5%25B9%25BF%25E7%259A%2584%25E4%25BC%25AA%25E9%2580%2589%25E6%258B%25A9%25E6%258E%2592%25E5%25BA%258F%25E7%25AE%2597%25E6%25B3%2595%2f">
-        <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
-      </a>
-    </li>
-    <li class="share-option">
-      <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fluyuekai.github.io%2f2016%2f03%2f%25E4%25B8%2580%25E7%25A7%258D%25E6%25B5%2581%25E4%25BC%25A0%25E8%25BE%2583%25E5%25B9%25BF%25E7%259A%2584%25E4%25BC%25AA%25E9%2580%2589%25E6%258B%25A9%25E6%258E%2592%25E5%25BA%258F%25E7%25AE%2597%25E6%25B3%2595%2f">
-        <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
-      </a>
-    </li>
-    <li class="share-option">
-      <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fluyuekai.github.io%2f2016%2f03%2f%25E4%25B8%2580%25E7%25A7%258D%25E6%25B5%2581%25E4%25BC%25A0%25E8%25BE%2583%25E5%25B9%25BF%25E7%259A%2584%25E4%25BC%25AA%25E9%2580%2589%25E6%258B%25A9%25E6%258E%2592%25E5%25BA%258F%25E7%25AE%2597%25E6%25B3%2595%2f">
-        <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
-      </a>
-    </li>
-  </ul>
-</div>
-<div id="share-options-mask" class="share-options-mask"></div>
     </div>
     
     <div id="about">
@@ -781,32 +561,6 @@ $(document).ready(function() {
   });
 });
 </script>
-
-  
-    
-      <script>
-        var disqus_config = function () {
-          this.page.url = 'https:\/\/luyuekai.github.io\/2016\/03\/%E4%B8%80%E7%A7%8D%E6%B5%81%E4%BC%A0%E8%BE%83%E5%B9%BF%E7%9A%84%E4%BC%AA%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95\/';
-          
-            this.page.identifier = '\/2016\/03\/%E4%B8%80%E7%A7%8D%E6%B5%81%E4%BC%A0%E8%BE%83%E5%B9%BF%E7%9A%84%E4%BC%AA%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95\/'
-          
-        };
-        (function() {
-          
-          
-          if (window.location.hostname == "localhost") {
-            return;
-          }
-          var d = document, s = d.createElement('script');
-          var disqus_shortname = 'test';
-          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-
-          s.setAttribute('data-timestamp', +new Date());
-          (d.head || d.body).appendChild(s);
-        })();
-      </script>
-    
-  
 
 
     
