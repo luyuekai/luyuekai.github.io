@@ -9,11 +9,11 @@
     <atom:link href="https://luyuekai.github.io/archives/2016-03/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>卢跃凯</title>
-      <link>https://luyuekai.github.io/2016/03/%E5%8D%A2%E8%B7%83%E5%87%AF/</link>
+      <title>本博客使用皮肤配置说明</title>
+      <link>https://luyuekai.github.io/2016/03/%E6%9C%AC%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E7%9A%AE%E8%82%A4%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/</link>
       <pubDate>Sat, 26 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://luyuekai.github.io/2016/03/%E5%8D%A2%E8%B7%83%E5%87%AF/</guid>
+      <guid>https://luyuekai.github.io/2016/03/%E6%9C%AC%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E7%9A%AE%E8%82%A4%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/</guid>
       <description>&lt;p&gt;四月是你的谎言
 &lt;/p&gt;
 
@@ -27,7 +27,7 @@
       <pubDate>Sun, 06 Mar 2016 00:00:00 +0000</pubDate>
       
       <guid>https://luyuekai.github.io/2016/03/%E4%B8%80%E7%A7%8D%E6%B5%81%E4%BC%A0%E8%BE%83%E5%B9%BF%E7%9A%84%E4%BC%AA%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</guid>
-      <description>&lt;h2 id=&#34;勿忘初心-奋起直追&#34;&gt;勿忘初心,奋起直追&lt;/h2&gt;
+      <description>&lt;p&gt;勿忘初心,奋起直追&lt;/p&gt;
 
 &lt;p&gt;
 在网上经常看到这种伪选择排序算法,包括自己在第一次编写选择排序时也编写了如下的效率不高的代码:&lt;/p&gt;

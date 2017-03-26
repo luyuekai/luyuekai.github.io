@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://luyuekai.github.io/2016/03/%E5%8D%A2%E8%B7%83%E5%87%AF/</loc>
+    <loc>https://luyuekai.github.io/2016/03/%E6%9C%AC%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E7%9A%AE%E8%82%A4%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/</loc>
     <lastmod>2016-03-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -106,18 +106,6 @@
   </url>
   
   <url>
-    <loc>https://luyuekai.github.io/tags/demo1/</loc>
-    <lastmod>2016-03-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://luyuekai.github.io/tags/demo2/</loc>
-    <lastmod>2016-03-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://luyuekai.github.io/tags/disqus/</loc>
     <lastmod>2015-06-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -162,6 +150,18 @@
   <url>
     <loc>https://luyuekai.github.io/tags/html-elements/</loc>
     <lastmod>2015-05-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://luyuekai.github.io/tags/hugo/</loc>
+    <lastmod>2016-03-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://luyuekai.github.io/categories/hugo-tranquilpeak-theme/</loc>
+    <lastmod>2016-03-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -231,14 +231,14 @@
   </url>
   
   <url>
-    <loc>https://luyuekai.github.io/categories/test/</loc>
-    <lastmod>2016-03-26T00:00:00+00:00</lastmod>
+    <loc>https://luyuekai.github.io/tags/test/</loc>
+    <lastmod>2015-03-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://luyuekai.github.io/tags/test/</loc>
-    <lastmod>2015-03-23T00:00:00+00:00</lastmod>
+    <loc>https://luyuekai.github.io/tags/theme/</loc>
+    <lastmod>2016-03-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

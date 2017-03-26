@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo on 听风流水的博客</title>
-    <link>https://luyuekai.github.io/tags/hugo/index.xml</link>
-    <description>Recent content in Hugo on 听风流水的博客</description>
+    <title>Hugo Tranquilpeak Theme on 听风流水的博客</title>
+    <link>https://luyuekai.github.io/categories/hugo-tranquilpeak-theme/index.xml</link>
+    <description>Recent content in Hugo Tranquilpeak Theme on 听风流水的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <atom:link href="https://luyuekai.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://luyuekai.github.io/categories/hugo-tranquilpeak-theme/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>本博客使用皮肤配置说明</title>
