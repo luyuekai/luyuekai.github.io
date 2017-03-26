@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>伪选择排序 on 听风流水的博客</title>
+    <link>https://luyuekai.github.io/categories/%E4%BC%AA%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/index.xml</link>
+    <description>Recent content in 伪选择排序 on 听风流水的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <atom:link href="https://luyuekai.github.io/categories/%E4%BC%AA%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>一种流传较广的伪选择排序算法</title>
+      <link>https://luyuekai.github.io/2016/03/%E4%B8%80%E7%A7%8D%E6%B5%81%E4%BC%A0%E8%BE%83%E5%B9%BF%E7%9A%84%E4%BC%AA%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sun, 06 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/2016/03/%E4%B8%80%E7%A7%8D%E6%B5%81%E4%BC%A0%E8%BE%83%E5%B9%BF%E7%9A%84%E4%BC%AA%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</guid>
+      <description>&lt;p&gt;勿忘初心,奋起直追&lt;/p&gt;
+
+&lt;p&gt;
+在网上经常看到这种伪选择排序算法,包括自己在第一次编写选择排序时也编写了如下的效率不高的代码:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;publi class FalseSort {  
+
+public FalseSort(){  
+
+    int a[]={1,54,6,3,78,34,12,45};  
+
+    int temp=0;  
+
+    for(int i=0;i&amp;lt;a.length;i++){  
+
+       for(int j=i+1;j&amp;lt;a.length;j++){  
+
+       if(a[i]&amp;gt;a[j]){  
+
+           temp=a[i];  
+
+           a[i]=a[j];  
+
+           a[j]=temp;  
+
+       }  
+
+       }  
+
+    }  
+
+    for(int i=0;i&amp;lt;a.length;i++)  
+
+       System.out.println(a[i]);     
+
+}  
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在代码第二层&lt;code&gt;for&lt;/code&gt;循环中做了一次交换,两层&lt;code&gt;for&lt;/code&gt;循环后可能要做&lt;code&gt;n(n-1)/2&lt;/code&gt;次交换.
+但在实际的选择排序中,只做n次交换就可以了.真正的选择排序是每次记录最小元素的下标,直到最后才进行交换
+example&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;
+// 选择排序
+    public void selectSort(){
+        int min = 0;
+        long tmp = 0L;
+        for(int i = 0; i &amp;lt; elems -1; i++){
+            min = i;
+            for(int j = i + 1; j &amp;lt; elems; j++) {
+                if(arr[j] &amp;lt; arr[min]) {
+                    min = j;
+                }
+            }
+            tmp = arr[i];
+            arr[i] = arr[min];
+            arr[min] = tmp;
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
