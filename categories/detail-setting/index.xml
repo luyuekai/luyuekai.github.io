@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Detail Setting on 听风流水的博客</title>
+    <link>https://luyuekai.github.io/categories/detail-setting/index.xml</link>
+    <description>Recent content in Detail Setting on 听风流水的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <atom:link href="https://luyuekai.github.io/categories/detail-setting/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>hugo-tranquilpeak-theme主题详细配置</title>
+      <link>https://luyuekai.github.io/2016/03/hugo-tranquilpeak-theme%E4%B8%BB%E9%A2%98%E8%AF%A6%E7%BB%86%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sun, 27 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/2016/03/hugo-tranquilpeak-theme%E4%B8%BB%E9%A2%98%E8%AF%A6%E7%BB%86%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;四月是你的谎言&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;hugo-tranquilpeak-theme主题是一个功能强大，界面华丽的hugo主题。&lt;br /&gt;
+官方描述：&lt;code&gt;A gorgeous responsive theme for Hugo blog framework&lt;/code&gt;
+废话不多说，直接跨入正题：&lt;/p&gt;
+
+&lt;p&gt;先看其默认配置文件：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;baseurl = &amp;ldquo; &amp;rdquo;&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;博客发布时，填写发布的域名；不发布则无所谓。（其实写成什么貌似都没有影响，可能未理解到位）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;languageCode = &amp;ldquo;en-us&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;defaultContentLanguage = &amp;ldquo;en-us&amp;rdquo;
+
+&lt;ul&gt;
+&lt;li&gt;页面默认是英文的，如果想变成中文，建议将改为defaultContentLanguage = &amp;ldquo;zh-cn&amp;rdquo;,第一个暂时不知道作用，我把改成“zh-cn”，“en-us”都没看出什么变化。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;title = &amp;ldquo;Hugo tranquilpeak theme&amp;rdquo;
+
+&lt;ul&gt;
+&lt;li&gt;默认文章名称，每次自己在新写markdown时，都会覆盖掉的&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;theme = &amp;ldquo;hugo-tranquilpeak-theme&amp;rdquo;
+
+&lt;ul&gt;
+&lt;li&gt;指定的主题名称，默认就好。第一个要改了的话，记得把themes里面对应的文件夹名字也换成相同的。否则会报错：找不到相应的文件夹。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;disqusShortname = &amp;ldquo;hugo-tranquilpeak-theme&amp;rdquo;
+
+&lt;ul&gt;
+&lt;li&gt;disqus是一个国外的评论系统，和留言类似。这个配置项主要是用来提供留言服务的。具体含义待定。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;#&lt;/code&gt; googleAnalytics = &amp;ldquo;UA-123-45&amp;rdquo;
+
+&lt;ul&gt;
+&lt;li&gt;Google爸爸的一个服务，默认不启用&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;paginate = 7
+
+&lt;ul&gt;
+&lt;li&gt;一页显示多少条博客，默认7条&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;canonifyurls = true
+
+&lt;ul&gt;
+&lt;li&gt;不明白，保持默认值。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以下挑重点说明：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;gravatarEmail = &amp;ldquo;thibaud.lepretre@gmail.com&amp;rdquo;
+
+&lt;ul&gt;
+&lt;li&gt;国外的一款软件，可以使你的账号使用同一个头像，国内无法使用，因此建议注释掉&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;picture = &lt;a href=&#34;http://oneumacbh.bkt.clouddn.com/cover1/%E5%B0%91%E5%A5%B3261276,105.jpg&#34;&gt;http://oneumacbh.bkt.clouddn.com/cover1/%E5%B0%91%E5%A5%B3261276,105.jpg&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;用来设置自己的头像的，gravatarEmail未注释的话，此项会被覆盖。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Menu Configuration
+
+&lt;ul&gt;
+&lt;li&gt;menu.main&lt;/li&gt;
+&lt;li&gt;menu.links&lt;/li&gt;
+&lt;li&gt;menu.misc
+分为三类，不同类在不同的栏子中，根据weight大小来排序，图标可在font库中查找。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;支持自定义日期输出格式&lt;/li&gt;
+&lt;li&gt;支持keywords（没发现在哪显示）&lt;/li&gt;
+&lt;li&gt;sideBar 即为左侧的侧边栏&lt;/li&gt;
+&lt;li&gt;hierarchicalCategories = true
+
+&lt;ul&gt;
+&lt;li&gt;为true时，会在分类哪里看到层级，false则不会&lt;/li&gt;
+&lt;li&gt;bug,分类在我这里用中文会乱码，暂不知道原因&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;coverImage
+
+&lt;ul&gt;
+&lt;li&gt;建议值为自己图片的CDN加载链接，CDN目前采用七牛云较好。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;thumbnailImage = true&lt;/li&gt;
+&lt;li&gt;thumbnailImagePosition = &amp;ldquo;bottom&amp;rdquo;
+
+&lt;ul&gt;
+&lt;li&gt;在index页面显示小照片，设置小照片的位置&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;autoThumbnailImage = true
+
+&lt;ul&gt;
+&lt;li&gt;设置是否自动为小照片&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!--more--&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
