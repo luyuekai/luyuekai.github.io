@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://luyuekai.github.io/2016/03/hugo%E4%B8%BB%E9%A2%98%E6%8E%A8%E8%8D%90/</loc>
+    <lastmod>2016-03-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://luyuekai.github.io/2016/03/hugo-tranquilpeak-theme%E4%B8%BB%E9%A2%98%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/</loc>
     <lastmod>2016-03-27T00:00:00+00:00</lastmod>
   </url>
@@ -89,6 +94,12 @@
   <url>
     <loc>https://luyuekai.github.io/archives/2016-03/</loc>
     <lastmod>2016-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://luyuekai.github.io/archives/2016-03-26/</loc>
+    <lastmod>2016-03-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -188,13 +199,13 @@
   
   <url>
     <loc>https://luyuekai.github.io/tags/hugo/</loc>
-    <lastmod>2016-03-27T00:00:00+00:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://luyuekai.github.io/categories/hugo-tranquilpeak-theme/</loc>
-    <lastmod>2016-03-27T00:00:00+00:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -224,7 +235,7 @@
   
   <url>
     <loc>https://luyuekai.github.io/post/</loc>
-    <lastmod>2016-03-27T00:00:00+00:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -277,7 +288,7 @@
   
   <url>
     <loc>https://luyuekai.github.io/tags/theme/</loc>
-    <lastmod>2016-03-27T00:00:00+00:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -313,7 +324,7 @@
   
   <url>
     <loc>https://luyuekai.github.io/</loc>
-    <lastmod>2016-03-27T00:00:00+00:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

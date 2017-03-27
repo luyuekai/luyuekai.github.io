@@ -9,6 +9,61 @@
     <atom:link href="https://luyuekai.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>hugo主题推荐</title>
+      <link>https://luyuekai.github.io/2016/03/hugo%E4%B8%BB%E9%A2%98%E6%8E%A8%E8%8D%90/</link>
+      <pubDate>Mon, 28 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/2016/03/hugo%E4%B8%BB%E9%A2%98%E6%8E%A8%E8%8D%90/</guid>
+      <description>&lt;p&gt;四月是你的谎言&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;选择一款好的主题对博客来说事关重大.一款好的主题不仅让浏览者赏心悦目,更会让博客作者有有着源源不断的动力去更新及维护自己的博客.&lt;/p&gt;
+
+&lt;p&gt;这几天在搭建博客中,研究了众多主题,也看了其他博主利用hugo搭建的博客风格,最终自己选择了&lt;code&gt;hugo-tranquilpeak-theme&lt;/code&gt;这款我自己极其喜爱的主题.&lt;/p&gt;
+
+&lt;p&gt;其实大家在查阅或浏览hugo主题时,经常会看到另一个搭建博客工具&lt;code&gt;hexo&lt;/code&gt;,并且众多hugo的theme都是直接仿照的&lt;code&gt;hexo&lt;/code&gt;里面的主题而建的,比如本博客的主题就是.至于hexo怎么使用,大家自行google即可.&lt;/p&gt;
+
+&lt;p&gt;步入正体:下面介绍一下hugo有关主题的选择.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;官方主题库(&lt;a href=&#34;http://themes.gohugo.io/&#34;&gt;http://themes.gohugo.io/&lt;/a&gt;)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;hugo中文网站的主题库(&lt;a href=&#34;http://www.gohugo.org/theme/&#34;&gt;http://www.gohugo.org/theme/&lt;/a&gt;)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以上两个库几乎囊括了hugo所有主流皮肤.下面给出一些使用上面的主题所做出来的网站示例.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;官方给出的示例(&lt;a href=&#34;https://gohugo.io/showcase/&#34;&gt;https://gohugo.io/showcase/&lt;/a&gt;)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;hugo中文网站给出的示例(&lt;a href=&#34;http://www.gohugo.org/showcase/&#34;&gt;http://www.gohugo.org/showcase/&lt;/a&gt;)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;再给出知乎大神对一些好看主题的推荐.虽然推荐的是Hexo的,但是大多hugo中也有相应的主题.&lt;/p&gt;
+
+&lt;p&gt;有哪些好看的 Hexo 主题？(&lt;a href=&#34;https://www.zhihu.com/question/24422335&#34;&gt;https://www.zhihu.com/question/24422335&lt;/a&gt;)&lt;br /&gt;
+在点赞数最多的回答中,所给出的star排行榜并不适用于hugo,我在hugo也分别看了里面前几的主题的star数,暂时发现最多的star数,当属我使用的这个主题&lt;code&gt;hugo-tranquilpeak-theme&lt;/code&gt;,(&lt;em&gt;^__^&lt;/em&gt;) 嘻嘻……莫名感到小小的自豪感,恩!&lt;/p&gt;
+
+&lt;p&gt;最后给出我在浏览主题时特别欣赏的几个主题风格吧,虽然最后也没使用上,sign&amp;hellip;&amp;hellip;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;青砾的博客(&lt;a href=&#34;http://www.chingli.com&#34;&gt;http://www.chingli.com&lt;/a&gt;) 简洁,一目了然&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;飞狐的部落格 (&lt;a href=&#34;http://lucumt.info/posts/&#34;&gt;http://lucumt.info/posts/&lt;/a&gt;)  看着满让人舒服的&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;peter aba (&lt;a href=&#34;https://peteraba.com/&#34;&gt;https://peteraba.com/&lt;/a&gt;) 有一种很专业的感觉,一看就是大神(也可能是因为全是英文的缘故23333)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ninjaduck的示例博客(&lt;a href=&#34;http://www.ninjaducks.in/&#34;&gt;http://www.ninjaducks.in/&lt;/a&gt;) 呆萌呆萌的&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;其他的欢迎补充哇!!&lt;/p&gt;
+
+&lt;p&gt;﻿
+&lt;!--more--&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>hugo-tranquilpeak-theme主题用户指南</title>
       <link>https://luyuekai.github.io/2016/03/hugo-tranquilpeak-theme%E4%B8%BB%E9%A2%98%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/</link>
       <pubDate>Sun, 27 Mar 2016 00:00:00 +0000</pubDate>
@@ -1195,9 +1250,9 @@ canonifyurls = true
 
 &lt;ul&gt;
 &lt;li&gt;hugo主题推荐（个人见解）&lt;/li&gt;
-&lt;li&gt;hugo-tranquilpeak-theme主题详细配置&lt;/li&gt;
-&lt;li&gt;hugo-tranquilpeak-theme主题用户指南&lt;/li&gt;
-&lt;li&gt;hugo-tranquilpeak-theme主题默认配置文件&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://luyuekai.github.io/2016/03/hugo-tranquilpeak-theme%E4%B8%BB%E9%A2%98%E8%AF%A6%E7%BB%86%E9%85%8D%E7%BD%AE/&#34;&gt;hugo-tranquilpeak-theme主题详细配置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/2016/03/hugo-tranquilpeak-theme%E4%B8%BB%E9%A2%98%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/&#34;&gt;hugo-tranquilpeak-theme主题用户指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/2016/03/hugo-tranquilpeak-theme%E4%B8%BB%E9%A2%98%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/&#34;&gt;hugo-tranquilpeak-theme主题默认配置文件&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;好好学习,好好coding&lt;/p&gt;

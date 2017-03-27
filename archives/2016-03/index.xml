@@ -1195,9 +1195,9 @@ canonifyurls = true
 
 &lt;ul&gt;
 &lt;li&gt;hugo主题推荐（个人见解）&lt;/li&gt;
-&lt;li&gt;hugo-tranquilpeak-theme主题详细配置&lt;/li&gt;
-&lt;li&gt;hugo-tranquilpeak-theme主题用户指南&lt;/li&gt;
-&lt;li&gt;hugo-tranquilpeak-theme主题默认配置文件&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://luyuekai.github.io/2016/03/hugo-tranquilpeak-theme%E4%B8%BB%E9%A2%98%E8%AF%A6%E7%BB%86%E9%85%8D%E7%BD%AE/&#34;&gt;hugo-tranquilpeak-theme主题详细配置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/2016/03/hugo-tranquilpeak-theme%E4%B8%BB%E9%A2%98%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/&#34;&gt;hugo-tranquilpeak-theme主题用户指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/2016/03/hugo-tranquilpeak-theme%E4%B8%BB%E9%A2%98%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/&#34;&gt;hugo-tranquilpeak-theme主题默认配置文件&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;好好学习,好好coding&lt;/p&gt;
