@@ -908,11 +908,45 @@ A post on index page will look like this with :&lt;code&gt;thumbnailImagePositio
 
 &lt;p&gt;Alert tag is useful to highlight a content like a tips or a warning. Check it live here : &lt;a href=&#34;https://tranquilpeak.kakawait.com/2014/10/tags-plugins-showcase/#alert&#34;&gt;Alert tag demo&lt;/a&gt;&lt;/p&gt;
 
+&lt;p&gt;Syntax:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&lt;div class=&#34;alert classes &#34;&gt;
+  &lt;p&gt;content&lt;/p&gt;
+&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;E.g:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&lt;div class=&#34;alert danger no-icon &#34;&gt;
+  &lt;p&gt;Here is a danger alert without icon&lt;/p&gt;
+&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Argument&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Classes&lt;/td&gt;
+&lt;td&gt;&lt;ul&gt;&lt;li&gt;info&lt;/li&gt;&lt;li&gt;success&lt;/li&gt;&lt;li&gt;warning&lt;/li&gt;&lt;li&gt;danger&lt;/li&gt;&lt;li&gt;no-icon&lt;/li&gt;&lt;/ul&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;highlight-text&#34;&gt;Highlight Text&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://s3-ap-northeast-1.amazonaws.com/tranquilpeak-hexo-theme/docs/1.6/highlight_text-tag.png&#34; alt=&#34;highlight_text-tag&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Highlight text tag is useful to highlight an interesting part in a text. Check it live here : &lt;a href=&#34;https://tranquilpeak.kakawait.com/2014/10/tags-plugins-showcase/#highlight-text&#34;&gt;Highlight text tag demo&lt;/a&gt;&lt;/p&gt;
+
 &lt;p&gt;Syntax:&lt;br /&gt;
 ```
-&lt;div class=&#34;alert &#34;&gt;
-  &lt;p&gt;&lt;/p&gt;
-&lt;/div&gt;&lt;/p&gt;</description>
+&lt;span class=&#34;highlight-text &#34;&gt;&lt;/span&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
