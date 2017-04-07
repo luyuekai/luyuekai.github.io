@@ -6,8 +6,56 @@
     <description>Recent content on 听风流水的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 05 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 Apr 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://luyuekai.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>取出数字的各个位数</title>
+      <link>https://luyuekai.github.io/2016/04/%E5%8F%96%E5%87%BA%E6%95%B0%E5%AD%97%E7%9A%84%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0/</link>
+      <pubDate>Thu, 07 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/2016/04/%E5%8F%96%E5%87%BA%E6%95%B0%E5%AD%97%E7%9A%84%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;四月是你的谎言&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;这几天在帮研二的师兄，师姐做面试题，经常遇到如下情景：&lt;br /&gt;
+&lt;code&gt;输入一个整数，取出该整数的各个位数。&lt;/code&gt;&lt;br /&gt;
+其实这算一个基础的算法，记得当时情景比这更为简单。直接限制了输入数字的位数：例如&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;输入一个五位数，输出它的反序；&lt;/li&gt;
+&lt;li&gt;输入一个三位数，求其各个位之和；&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;求1到2000000的各个位数之和；&lt;/li&gt;
+&lt;li&gt;等等。。。。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;现给出通用解法，Mark一下！&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;
+public class test1 {
+    static int fun(int n){
+        int sum=0;
+        while (n!=0) {
+            sum+=n%10;
+            n/=10;
+
+        }
+        return sum;
+    }
+    public static void main(String[] args) {
+        int result = 0;
+        for (int i = 0; i &amp;lt;= 2000000; i++) {
+            result+= test1.fun(i);
+        }
+        System.out.println(result);
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以后要多复习，恩！&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>git中各字母详解</title>
@@ -4841,18 +4889,6 @@ li[lang=ru] {
       
       <guid>https://luyuekai.github.io/2014/08/hidden-social-section-showcase/</guid>
       <description>&lt;p&gt;This post is used to show how a site looks if the social section is hidden.
-&lt;/p&gt;
-
-&lt;p&gt;In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Hidden tag section showcase</title>
-      <link>https://luyuekai.github.io/2014/08/hidden-tag-section-showcase/</link>
-      <pubDate>Sat, 16 Aug 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://luyuekai.github.io/2014/08/hidden-tag-section-showcase/</guid>
-      <description>&lt;p&gt;This post is used to show how a site looks if the tag section is hidden.
 &lt;/p&gt;
 
 &lt;p&gt;In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.&lt;/p&gt;</description>

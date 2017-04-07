@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://luyuekai.github.io/2016/04/%E5%8F%96%E5%87%BA%E6%95%B0%E5%AD%97%E7%9A%84%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0/</loc>
+    <lastmod>2016-04-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://luyuekai.github.io/2016/04/git%E4%B8%AD%E5%90%84%E5%AD%97%E6%AF%8D%E8%AF%A6%E8%A7%A3/</loc>
     <lastmod>2016-04-05T00:00:00+00:00</lastmod>
   </url>
@@ -103,7 +108,7 @@
   
   <url>
     <loc>https://luyuekai.github.io/archives/2016-03/</loc>
-    <lastmod>2016-03-27T00:00:00+00:00</lastmod>
+    <lastmod>2016-04-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -116,6 +121,12 @@
   <url>
     <loc>https://luyuekai.github.io/archives/2016-04/</loc>
     <lastmod>2016-04-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://luyuekai.github.io/categories/algorithm/</loc>
+    <lastmod>2016-04-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -178,13 +189,13 @@
   </url>
   
   <url>
-    <loc>https://luyuekai.github.io/categories/git/</loc>
+    <loc>https://luyuekai.github.io/tags/git/</loc>
     <lastmod>2016-04-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://luyuekai.github.io/tags/git/</loc>
+    <loc>https://luyuekai.github.io/categories/git/</loc>
     <lastmod>2016-04-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -263,7 +274,7 @@
   
   <url>
     <loc>https://luyuekai.github.io/post/</loc>
-    <lastmod>2016-04-05T00:00:00+00:00</lastmod>
+    <lastmod>2016-04-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -364,7 +375,13 @@
   
   <url>
     <loc>https://luyuekai.github.io/</loc>
-    <lastmod>2016-04-05T00:00:00+00:00</lastmod>
+    <lastmod>2016-04-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://luyuekai.github.io/tags/%E6%B1%82%E6%95%B0%E5%AD%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0/</loc>
+    <lastmod>2016-04-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -376,7 +393,7 @@
   
   <url>
     <loc>https://luyuekai.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2016-03-06T00:00:00+00:00</lastmod>
+    <lastmod>2016-04-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
