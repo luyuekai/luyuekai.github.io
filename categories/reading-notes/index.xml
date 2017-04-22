@@ -9,6 +9,111 @@
     <atom:link href="https://luyuekai.github.io/categories/reading-notes/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>NAT地址转换协议小记</title>
+      <link>https://luyuekai.github.io/2017/04/nat%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E5%8D%8F%E8%AE%AE%E5%B0%8F%E8%AE%B0/</link>
+      <pubDate>Mon, 17 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/2017/04/nat%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E5%8D%8F%E8%AE%AE%E5%B0%8F%E8%AE%B0/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;你是人间的四月天&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;
+参考文章：&lt;br /&gt;
+1. &lt;a href=&#34;http://www.jianshu.com/p/62028875d53e&#34;&gt;http://www.jianshu.com/p/62028875d53e&lt;/a&gt;&lt;br /&gt;
+2. &lt;a href=&#34;http://www.cnblogs.com/gaojing/archive/2009/10/09/1579455.html&#34;&gt;http://www.cnblogs.com/gaojing/archive/2009/10/09/1579455.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;nat-network-address-translation-地址转换协议&#34;&gt;NAT : Network Address Translation 地址转换协议&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;使用场景： 使内网电脑可以访问外网资源&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;优点：
+
+&lt;ul&gt;
+&lt;li&gt;用于实现私有网络访问公共网络的功能。&lt;/li&gt;
+&lt;li&gt;使用少量的公网IP地址代表较多的私网IP地址，有助于减缓可用IP地址空间的枯竭。&lt;/li&gt;
+&lt;li&gt;避免来自网络外部的攻击，隐藏并保护网络内部的计算机&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;NAT简介：&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;借助于NAT，私有(保留)地址的&amp;rdquo;内部&amp;rdquo;网络通过路由器发送数据包时，私有地址被转换成合法的IP地址，一个局域网只需使用少量IP地址(甚至是1个)即可实现私有地址网络内所有计算机与Internet的通信需求。&lt;/li&gt;
+&lt;li&gt;NAT将自动修改IP报文的源IP地址和目的IP地址，Ip地址校验则在NAT处理过程中自动完成（对于ICMP，NAT也自动完成地址转换）。有些应用程序将源IP地址嵌入到IP报文的数据部分中，所以还需要同时对报文进行修改，以匹配IP头中已经修改过的源IP地址。否则，在报文数据都分别嵌入IP地址的应用程序就不能正常工作。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;工作原理&#34;&gt;工作原理&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;当一台内网计算机用户连接Internet资源时，该用户的 TCP/IP 协议产生一个 IP 数据包，该数据包包含以下值，这些值位于 IP 和 TCP 或 UDP 标头中：(粗体内容表示受 NAT 影响的项目)：&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;目标 IP 地址：Internet 资源 IP 地址&lt;/li&gt;
+&lt;li&gt;源 IP 地址：私有 IP 地址&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;目标端口：Internet 资源 TCP 或 UDP 端口&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;源端口：源应用程序 TCP 或 UDP 端口&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;请求源主机或者其它路由器将此 IP 数据包发送给 NAT, 然后由 NAT 将向外发送的数据包的地址解析如下：
+
+&lt;ul&gt;
+&lt;li&gt;目标IP地址：Internet 资源 IP 地址&lt;/li&gt;
+&lt;li&gt;源IP 地址：ISP 分配的公用地址&lt;/li&gt;
+&lt;li&gt;目标端口：Internet 资源 TCP 或 UDP 端口&lt;/li&gt;
+&lt;li&gt;源端口：重新映射的源应用程序TCP 或 UDP 端口&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;NAT 将重新映射的 IP 数据包发送到 Internet 。响应计算机将向 NAT 返回一个响应。当 NAT 接收到此响应时，该数据包将包含以下地址信息：
+
+&lt;ul&gt;
+&lt;li&gt;目标IP 地址：ISP 分配的公用地址&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;源IP地址：Internet 资源 IP 地址&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;目标端口：重新映射的源应用程序 TCP 或 UDP 端口&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;源端口：Internet 资源的 TCP 或者 UDP 端口&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;当 NAT 完成映射和解析地址后，将向 Internet 客户端发送数据包，此数据包包含以下地址信息：&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;目标 IP 地址：私有 IP 地址&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;源 IP 地址：Internet 资源 IP 地址&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;目标端口：源应用程序TCP 或者 UDP 端口&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;源端口：Internet 资源 TCP 或 UDP 端口&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;工作模式-三种-优缺点&#34;&gt;工作模式（三种，优缺点）&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;NAT使用基于session的转换规则&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;TCP/UDP&lt;/strong&gt; ：私有Host的Ipv4 + port &amp;lt;======&amp;gt; NAT公网的Ipv4 + port&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ICMP&lt;/strong&gt; ：私有Host的Ipv4 + sessionID &amp;lt;======&amp;gt; NAT公网的Ipv4 + sessionID&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;静态NAT&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;静态NAT就是一对一映射，内部有多少私有地址需要和外部通信，就要配置多少外网IP地址与其对应，并不节省外网IP，所以一般不用&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;img src=&#34;https://luyuekai.github.io/content-img/NAT1.png&#34; alt=&#34;静态NAT&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;动态NAT&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;动态NAT是在路由器上配置一个外网IP地址池，当内部有计算机需要和外部通信时，就从地址池里动态的取出一个外网IP，并将他们的对应关系绑定到NAT表中，通信结束后，这个外网IP才被释放，可供其他内部IP地址转换使用，这个DHCP租约IP有相似之处。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;img src=&#34;https://luyuekai.github.io/content-img/NAT2.png&#34; alt=&#34;动态NAT&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;PAT(port address Translation,端口地址转换,也叫端口地址复用)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;这是最常用的NAT技术，也是IPv4能够维持到今天的最重要的原因之一，它提供了一种多对一的方式，对多个内网IP地址，边界路由可以给他们分配一个外网IP，利用这个外网IP的不同端口和外部进行通信。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;img src=&#34;https://luyuekai.github.io/content-img/NAT3.png&#34; alt=&#34;PAT&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
       <title>effective java 读书笔记（一）</title>
       <link>https://luyuekai.github.io/2017/04/effective-java-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/</link>
       <pubDate>Sun, 16 Apr 2017 00:00:00 +0000</pubDate>
