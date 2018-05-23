@@ -1,0 +1,811 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+
+  
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.40.3 with theme Tranquilpeak 0.4.3-BETA">
+    <title>effective java 读书笔记（二）</title>
+    <meta name="author" content="听风流水">
+    <meta name="keywords" content="java">
+
+    <link rel="icon" href="https://luyuekai.github.io/favicon.png">
+    
+
+    
+    <meta name="description" content="你是人间的四月天
+
+">
+    <meta property="og:description" content="你是人间的四月天
+
+">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="effective java 读书笔记（二）">
+    <meta property="og:url" content="/2017/04/effective-java-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C/">
+    <meta property="og:site_name" content="听风流水的博客">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="听风流水的博客">
+    <meta name="twitter:description" content="你是人间的四月天
+
+">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="http://oneumacbh.bkt.clouddn.com/%E5%A5%B3%E5%B8%9D2.jpg">
+    
+
+    
+      <meta property="og:image" content="https://luyuekai.github.io/img/%E5%AE%88%E6%9C%9B%E5%A4%A9%E4%BD%BF.jpg">
+    
+    
+      <meta property="og:image" content="https://luyuekai.github.io/img/%E8%83%8C%E6%99%AF-1.jpg">
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://luyuekai.github.io/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://luyuekai.github.io/">听风流水的博客</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://luyuekai.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="http://oneumacbh.bkt.clouddn.com/%E5%A5%B3%E5%B8%9D2.jpg" alt="作者的图片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://luyuekai.github.io/#about">
+          <img class="sidebar-profile-picture" src="http://oneumacbh.bkt.clouddn.com/%E5%A5%B3%E5%B8%9D2.jpg" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">听风流水</h4>
+        
+          <h5 class="sidebar-profile-bio"><h2 id="常怀敬畏之心-方能行有所止"><em>　常怀敬畏之心，方能行有所止</em></h2>
+</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://luyuekai.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">分类</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://luyuekai.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://luyuekai.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">归档</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://luyuekai.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link open-algolia-search" href="https://luyuekai.github.io/#search">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+      
+      <span class="sidebar-button-desc">搜索</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://luyuekai.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/636472/kakawait" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+      
+      <span class="sidebar-button-desc">Stack Overflow</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://luyuekai.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/luyuekai" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('/img/%e8%83%8c%e6%99%af-1.jpg')"
+       data-behavior="4">
+    
+      <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      effective java 读书笔记（二）
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-04-28T00:00:00Z">
+        
+  四月 28, 2017
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://luyuekai.github.io/categories/reading-notes">reading notes</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p><strong>你是人间的四月天</strong></p>
+
+<p></p>
+
+<h2 id="第三章-对于所有对象都通用的方法">第三章  对于所有对象都通用的方法</h2>
+
+<ul>
+<li>八.  覆盖equals时请遵守通用约定<br />
+
+<ul>
+<li>equals方法实现的等价关系: <strong>自反性,对称性,传递性,一致性</strong></li>
+</ul></li>
+<li>九．覆盖equals时总要覆盖hashCode<br />
+
+<ul>
+<li>相等的对象必须具有相等的散列码(hashcode)</li>
+<li>不等的对象散列码可能相等,但最佳实践是&rdquo;为不相等的对象产生不相等的散列码&rdquo;<br /></li>
+</ul></li>
+<li>十. 始终要覆盖toString方法<br /></li>
+<li>十一. 谨慎地覆盖clone<br /></li>
+<li>十二. 考虑实现Comparable接口<br />
+
+<ul>
+<li>如果在编写一个值类,具有非常明显的内在排序关系,如按照字母排序,按数值排序,按年代排序,那应该坚决考虑实现Comparable接口<br /></li>
+</ul></li>
+</ul>
+
+<pre><code class="language-java">  public interface Comparable&lt;T&gt;{
+  int compareTo(T t)
+  }
+</code></pre>
+
+<h2 id="第四章-类和接口">第四章 类和接口</h2>
+
+<ul>
+<li>十三. 使类和成员的可访问性最小化<br />
+
+<ul>
+<li>尽可能地使每个类或者成员不对外接访问<br /></li>
+<li>类具有公有的静态final数组域,或者返回这种域的访问方法,这几乎总是错误的.</li>
+</ul></li>
+<li>十四. 在公有类中使用访问方法而非公有域<br />
+<code>java
+class Point {
+public double x;
+public double y;
+}
+</code><br />
+正确做法应该设置为private方法,提供setter和getter方法.<br /></li>
+<li>十五. 使可变性最小化<br />
+为了使类成为不可变,应遵循以下五条规则<br />
+
+<ul>
+<li>1. 不要提供任何会修改对象状态的方法<br /></li>
+<li>2. 保证类不会被扩展.一般做法是使这个类成为final<br /></li>
+<li>3. 使所有的域都是final的</li>
+<li>4. 使所有的域都变成私有的<br /></li>
+<li>5.确保对于任何可变组件的互斥访问</li>
+<li>不可变对象本质上是线程安全的，它们不要求同步<br /></li>
+</ul></li>
+<li>十六. 复合优先于继承</li>
+<li>十七.  要么为继承而设计，并提供文档说明，要么就禁止继承<br />
+有两种方法可以禁止子类化：<br />
+
+<ul>
+<li>较容易的：把该类声明为final<br /></li>
+<li>把所有的构造器都变成私有的，或者包级私有的，并增加一些公有的静态工厂来替代构造器</li>
+</ul></li>
+<li>十八. 接口优于抽象类<br /></li>
+<li>十九. 接口只用于定义类型<br /></li>
+<li>二十.  类层次优于标签类<br />
+
+<ul>
+<li>标签类过于冗长，容易出错，并且效率低下。</li>
+</ul></li>
+
+<li><p>二一. 用函数对象表示策略</p>
+
+<ul>
+<li>具体的策略类往往使用匿名类声明，下面的语句根据长度对一个字符串数组进行排序：<br /></li>
+
+<li><pre><code class="language-java">Arrays.sort(stringArray,new Comparator&lt;String&gt;(){
+public int compare(String s1,String s2){
+   return  s1.length() - s2.length();
+}  
+}
+)
+</code></pre></li>
+
+<li><p>注意，采用上述方式使用匿名类时，将会在每次执行调用的时候创建一个新的实例。如果它被重复执行，考虑将函数对象存储到一个私有的静态final域里，并重用它。这样做的另一种好处是，可以为这个函数对象取一个有意义的域名城。</p></li>
+</ul></li>
+
+<li><p>二二. 优先考虑静态成员类</p>
+
+<ul>
+<li>嵌套类是指被定义在另一个类的内部的类。嵌套类存在的目的应该只是为它的外围类提供服务。嵌套类有四种：<strong>静态成员类</strong>、<strong>非静态成员类</strong>、<strong>匿名类</strong>、<strong>局部类</strong></li>
+</ul></li>
+</ul>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://luyuekai.github.io/tags/effective-java/">effective java</a>
+
+  <a class="tag tag--primary tag--small" href="https://luyuekai.github.io/tags/notes/">notes</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://luyuekai.github.io/2017/04/effective-java-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%89/" data-tooltip="effective java 读书笔记（三）">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://luyuekai.github.io/2017/04/nat%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E5%8D%8F%E8%AE%AE%E5%B0%8F%E8%AE%B0/" data-tooltip="NAT地址转换协议小记">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 听风流水. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://luyuekai.github.io/2017/04/effective-java-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%89/" data-tooltip="effective java 读书笔记（三）">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://luyuekai.github.io/2017/04/nat%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E5%8D%8F%E8%AE%AE%E5%B0%8F%E8%AE%B0/" data-tooltip="NAT地址转换协议小记">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="http://oneumacbh.bkt.clouddn.com/%E5%A5%B3%E5%B8%9D2.jpg" alt="作者的图片" />
+    
+    <h4 id="about-card-name">听风流水</h4>
+    
+      <div id="about-card-bio"><h2 id="常怀敬畏之心-方能行有所止"><em>　常怀敬畏之心，方能行有所止</em></h2>
+</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        北京邮电大学
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        BeiJing
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="搜索" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center"></div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://luyuekai.github.io/2017/04/effective-java-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%9B%9B/">
+                <h3 class="media-heading">effective java 读书笔记（四）</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p><strong>你是人间的四月天</strong></p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://luyuekai.github.io/2017/04/effective-java-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%89/">
+                <h3 class="media-heading">effective java 读书笔记（三）</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p><strong>你是人间的四月天</strong></p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://luyuekai.github.io/2017/04/effective-java-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C/">
+                <h3 class="media-heading">effective java 读书笔记（二）</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p><strong>你是人间的四月天</strong></p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://luyuekai.github.io/2017/04/nat%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E5%8D%8F%E8%AE%AE%E5%B0%8F%E8%AE%B0/">
+                <h3 class="media-heading">NAT地址转换协议小记</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p><strong>你是人间的四月天</strong></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://luyuekai.github.io/2017/04/effective-java-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/">
+                <h3 class="media-heading">effective java 读书笔记（一）</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p><strong>你是人间的四月天</strong></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://luyuekai.github.io/2017/04/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">
+                <h3 class="media-heading">字符串匹配算法</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p><strong>你是人间的四月天</strong>
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://luyuekai.github.io/2016/04/%E5%8F%96%E5%87%BA%E6%95%B0%E5%AD%97%E7%9A%84%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0/">
+                <h3 class="media-heading">取出数字的各个位数</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p><strong>四月是你的谎言</strong></p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://luyuekai.github.io/2016/04/git%E4%B8%AD%E5%90%84%E5%AD%97%E6%AF%8D%E8%AF%A6%E8%A7%A3/">
+                <h3 class="media-heading">git中各字母详解</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p><strong>四月是你的谎言</strong></p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://luyuekai.github.io/2016/04/%E4%BD%8D%E5%90%91%E9%87%8F%E8%A1%A8%E7%A4%BA%E6%9C%89%E9%99%90%E9%9B%86%E5%90%88/">
+                <h3 class="media-heading">位向量表示有限集合</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p><strong>四月是你的谎言</strong></p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://luyuekai.github.io/2016/03/hugo%E4%B8%BB%E9%A2%98%E6%8E%A8%E8%8D%90/">
+                <h3 class="media-heading">hugo主题推荐</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p><strong>四月是你的谎言</strong></p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         24 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('http://oneumacbh.bkt.clouddn.com/rawcovercover.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://luyuekai.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/luyuekai.github.io\/2017\/04\/effective-java-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C\/';
+          
+            this.page.identifier = '\/2017\/04\/effective-java-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'test';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+
