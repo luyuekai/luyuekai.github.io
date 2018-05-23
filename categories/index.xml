@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on 听风流水的博客</title>
+    <link>https://luyuekai.github.io/categories/</link>
+    <description>Recent content in Categories on 听风流水的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 07 Apr 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://luyuekai.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Algorithm</title>
+      <link>https://luyuekai.github.io/categories/algorithm/</link>
+      <pubDate>Thu, 07 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/categories/algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Default Configuration File</title>
+      <link>https://luyuekai.github.io/categories/default-configuration-file/</link>
+      <pubDate>Sun, 27 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/categories/default-configuration-file/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Detail Setting</title>
+      <link>https://luyuekai.github.io/categories/detail-setting/</link>
+      <pubDate>Sun, 27 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/categories/detail-setting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Error Selection Sort</title>
+      <link>https://luyuekai.github.io/categories/error-selection-sort/</link>
+      <pubDate>Sun, 06 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/categories/error-selection-sort/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Features</title>
+      <link>https://luyuekai.github.io/categories/features/</link>
+      <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/categories/features/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>https://luyuekai.github.io/categories/git/</link>
+      <pubDate>Tue, 05 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/categories/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo Tranquilpeak Theme</title>
+      <link>https://luyuekai.github.io/categories/hugo-tranquilpeak-theme/</link>
+      <pubDate>Mon, 28 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/categories/hugo-tranquilpeak-theme/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kmp</title>
+      <link>https://luyuekai.github.io/categories/kmp/</link>
+      <pubDate>Sat, 15 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/categories/kmp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reading Notes</title>
+      <link>https://luyuekai.github.io/categories/reading-notes/</link>
+      <pubDate>Sun, 30 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/categories/reading-notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Releases</title>
+      <link>https://luyuekai.github.io/categories/releases/</link>
+      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/categories/releases/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sort Algorithm</title>
+      <link>https://luyuekai.github.io/categories/sort-algorithm/</link>
+      <pubDate>Sun, 06 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/categories/sort-algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tranquilpeak</title>
+      <link>https://luyuekai.github.io/categories/tranquilpeak/</link>
+      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/categories/tranquilpeak/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>字符串匹配</title>
+      <link>https://luyuekai.github.io/categories/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/</link>
+      <pubDate>Sat, 15 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/categories/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
