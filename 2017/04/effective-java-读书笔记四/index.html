@@ -298,118 +298,103 @@
 <li>对两个集合进行嵌套迭代时常犯的错误如下：<br /></li>
 </ul></li>
 </ul>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Tets0426</span> <span class="o">{</span>
+     <span class="kd">enum</span> <span class="n">Suit</span> <span class="o">{</span><span class="n">CLUB</span><span class="o">,</span> <span class="n">DIAMOND</span><span class="o">,</span> <span class="n">HEART</span> <span class="o">,</span> <span class="n">SPADE</span><span class="o">}</span>
+     <span class="kd">enum</span> <span class="n">Rank</span> <span class="o">{</span><span class="n">ACE</span><span class="o">,</span><span class="n">DEUCE</span><span class="o">,</span> <span class="n">THREE</span><span class="o">,</span><span class="n">FOUR</span><span class="o">,</span><span class="n">FIVE</span><span class="o">,</span><span class="n">SIX</span><span class="o">,</span><span class="n">SEVEN</span><span class="o">,</span><span class="n">EIGHT</span><span class="o">,</span><span class="n">NINE</span><span class="o">,</span><span class="n">TEN</span><span class="o">,</span><span class="n">JACK</span><span class="o">,</span><span class="n">QUEEN</span><span class="o">,</span><span class="n">KING</span><span class="o">}</span>
+     <span class="kd">static</span>  <span class="kd">class</span> <span class="nc">Card</span><span class="o">{</span>
+          <span class="kd">public</span>  <span class="nf">Card</span><span class="o">(</span><span class="n">Suit</span> <span class="n">suit</span><span class="o">,</span><span class="n">Rank</span> <span class="n">rank</span><span class="o">){</span>
 
-<pre><code class="language-java">public class Tets0426 {
-     enum Suit {CLUB, DIAMOND, HEART , SPADE}
-     enum Rank {ACE,DEUCE, THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,TEN,JACK,QUEEN,KING}
-     static  class Card{
-          public  Card(Suit suit,Rank rank){
+          <span class="o">}</span>
 
-          }
+      <span class="o">}</span>
 
-      }
-
-    public static void main(String[] args) {
-
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 
 
-        Collection&lt;Suit&gt; suits = Arrays.asList(Suit.values());
-        Collection&lt;Rank&gt; ranks = Arrays.asList(Rank.values());
 
-        List&lt;Card&gt; deck = new ArrayList&lt;&gt;();
+        <span class="n">Collection</span><span class="o">&lt;</span><span class="n">Suit</span><span class="o">&gt;</span> <span class="n">suits</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">Suit</span><span class="o">.</span><span class="na">values</span><span class="o">());</span>
+        <span class="n">Collection</span><span class="o">&lt;</span><span class="n">Rank</span><span class="o">&gt;</span> <span class="n">ranks</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">Rank</span><span class="o">.</span><span class="na">values</span><span class="o">());</span>
 
-        for (Iterator&lt;Suit&gt; i =  suits.iterator(); i.hasNext();) {
-            for (Iterator&lt;Rank&gt; j =  ranks.iterator(); j.hasNext();) {
-                Suit s1 = i.next();
-                Rank r1 = j.next();
-                deck.add(new Card(s1,r1));
-                System.out.println(s1+&quot; &quot;+r1);
-            }
-        }
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Card</span><span class="o">&gt;</span> <span class="n">deck</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
 
-    }
+        <span class="k">for</span> <span class="o">(</span><span class="n">Iterator</span><span class="o">&lt;</span><span class="n">Suit</span><span class="o">&gt;</span> <span class="n">i</span> <span class="o">=</span>  <span class="n">suits</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span> <span class="n">i</span><span class="o">.</span><span class="na">hasNext</span><span class="o">();)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="n">Iterator</span><span class="o">&lt;</span><span class="n">Rank</span><span class="o">&gt;</span> <span class="n">j</span> <span class="o">=</span>  <span class="n">ranks</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span> <span class="n">j</span><span class="o">.</span><span class="na">hasNext</span><span class="o">();)</span> <span class="o">{</span>
+                <span class="n">Suit</span> <span class="n">s1</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+                <span class="n">Rank</span> <span class="n">r1</span> <span class="o">=</span> <span class="n">j</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+                <span class="n">deck</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Card</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span><span class="n">r1</span><span class="o">));</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s1</span><span class="o">+</span><span class="s">&#34; &#34;</span><span class="o">+</span><span class="n">r1</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
 
-}
+    <span class="o">}</span>
 
-</code></pre>
-
+<span class="o">}</span></code></pre></div>
 <ul>
 <li>上述代码问题在于，在迭代器上对外部的集合（suits）调用了太多次next方法。我们应该从外部的循环进行调用，以便每种花色调用一次，但它却是从内部循环调用，因此它是每张牌调用一次。在用完所有花色之后，循环就会抛出<code>NoSuchElementException</code>异常。</li>
 <li>如果不幸，外部集合的大小是内部集合大小的几倍&mdash;-可能因为它们是相同的集合&mdash;-循环就会终止，但是不会完成你想要的工作。例如，下面是个考虑不周的尝试，<strong>要打印一对骰子的所有可能的滚法。</strong></li>
 <li></li>
 </ul>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestItrator</span> <span class="o">{</span>
 
-<pre><code class="language-java">public class TestItrator {
+    <span class="kd">enum</span> <span class="n">Face</span> <span class="o">{</span>
 
-    enum Face {
+        <span class="n">ONE</span><span class="o">,</span> <span class="n">TWO</span> <span class="o">,</span> <span class="n">THREE</span><span class="o">,</span> <span class="n">FOUR</span><span class="o">,</span> <span class="n">FIVE</span><span class="o">,</span> <span class="n">SIX</span>
+    <span class="o">}</span>
 
-        ONE, TWO , THREE, FOUR, FIVE, SIX
-    }
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Collection</span><span class="o">&lt;</span><span class="n">Face</span><span class="o">&gt;</span> <span class="n">faces</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">Face</span><span class="o">.</span><span class="na">values</span><span class="o">());</span>
 
-    public static void main(String[] args) {
-        Collection&lt;Face&gt; faces = Arrays.asList(Face.values());
+        <span class="k">for</span> <span class="o">(</span><span class="n">Iterator</span> <span class="n">iterator</span> <span class="o">=</span> <span class="n">faces</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span> <span class="n">iterator</span><span class="o">.</span><span class="na">hasNext</span><span class="o">();)</span> <span class="o">{</span>
+<span class="c1">//             Face f = (Face) iterator.next();
+</span><span class="c1"></span>            <span class="k">for</span> <span class="o">(</span><span class="n">Iterator</span> <span class="n">iterator1</span> <span class="o">=</span> <span class="n">faces</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span> <span class="n">iterator1</span><span class="o">.</span><span class="na">hasNext</span><span class="o">();)</span> <span class="o">{</span>
 
-        for (Iterator iterator = faces.iterator(); iterator.hasNext();) {
-//             Face f = (Face) iterator.next();
-            for (Iterator iterator1 = faces.iterator(); iterator1.hasNext();) {
+<span class="c1">//                  System.out.println(f + &#34; &#34; + iterator1.next());
+</span><span class="c1"></span>                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iterator</span><span class="o">.</span><span class="na">next</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34; &#34;</span> <span class="o">+</span> <span class="n">iterator1</span><span class="o">.</span><span class="na">next</span><span class="o">());</span>
+            <span class="o">}</span>
 
-//                  System.out.println(f + &quot; &quot; + iterator1.next());
-                System.out.println(iterator.next() + &quot; &quot; + iterator1.next());
-            }
+        <span class="o">}</span>
+    <span class="o">}</span>
 
-        }
-    }
-
-}
-</code></pre>
-
+<span class="o">}</span></code></pre></div>
 <p>打印结果如下：</p>
-
-<pre><code class="language-java">ONE ONE
-TWO TWO
-THREE THREE
-FOUR FOUR
-FIVE FIVE
-SIX SIX
-</code></pre>
-
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">ONE</span> <span class="n">ONE</span>
+<span class="n">TWO</span> <span class="n">TWO</span>
+<span class="n">THREE</span> <span class="n">THREE</span>
+<span class="n">FOUR</span> <span class="n">FOUR</span>
+<span class="n">FIVE</span> <span class="n">FIVE</span>
+<span class="n">SIX</span> <span class="n">SIX</span></code></pre></div>
 <p>正确的代码：</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestItrator</span> <span class="o">{</span>
 
-<pre><code class="language-java">public class TestItrator {
+    <span class="kd">enum</span> <span class="n">Face</span> <span class="o">{</span>
 
-    enum Face {
+        <span class="n">ONE</span><span class="o">,</span> <span class="n">TWO</span> <span class="o">,</span> <span class="n">THREE</span><span class="o">,</span> <span class="n">FOUR</span><span class="o">,</span> <span class="n">FIVE</span><span class="o">,</span> <span class="n">SIX</span>
+    <span class="o">}</span>
 
-        ONE, TWO , THREE, FOUR, FIVE, SIX
-    }
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Collection</span><span class="o">&lt;</span><span class="n">Face</span><span class="o">&gt;</span> <span class="n">faces</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">Face</span><span class="o">.</span><span class="na">values</span><span class="o">());</span>
 
-    public static void main(String[] args) {
-        Collection&lt;Face&gt; faces = Arrays.asList(Face.values());
+        <span class="k">for</span> <span class="o">(</span><span class="n">Iterator</span> <span class="n">iterator</span> <span class="o">=</span> <span class="n">faces</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span> <span class="n">iterator</span><span class="o">.</span><span class="na">hasNext</span><span class="o">();)</span> <span class="o">{</span>
+             <span class="n">Face</span> <span class="n">f</span> <span class="o">=</span> <span class="o">(</span><span class="n">Face</span><span class="o">)</span> <span class="n">iterator</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+            <span class="k">for</span> <span class="o">(</span><span class="n">Iterator</span> <span class="n">iterator1</span> <span class="o">=</span> <span class="n">faces</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span> <span class="n">iterator1</span><span class="o">.</span><span class="na">hasNext</span><span class="o">();)</span> <span class="o">{</span>
 
-        for (Iterator iterator = faces.iterator(); iterator.hasNext();) {
-             Face f = (Face) iterator.next();
-            for (Iterator iterator1 = faces.iterator(); iterator1.hasNext();) {
+                  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">f</span> <span class="o">+</span> <span class="s">&#34; &#34;</span> <span class="o">+</span> <span class="n">iterator1</span><span class="o">.</span><span class="na">next</span><span class="o">());</span>
+<span class="c1">//                System.out.println(iterator.next() + &#34; &#34; + iterator1.next());
+</span><span class="c1"></span>            <span class="o">}</span>
 
-                  System.out.println(f + &quot; &quot; + iterator1.next());
-//                System.out.println(iterator.next() + &quot; &quot; + iterator1.next());
-            }
+        <span class="o">}</span>
+    <span class="o">}</span>
 
-        }
-    }
-
-}
-</code></pre>
-
+<span class="o">}</span></code></pre></div>
 <p>正确的打印结果如下：</p>
-
-<pre><code>ONE ONE
+<div class="highlight"><pre class="chroma">ONE ONE
 ONE TWO
 ONE THREE
 ONE FOUR
 ONE FIVE
 ONE SIX
 TWO ONE
-.......
-</code></pre>
+.......</pre></div>
               
             </div>
           </div>
@@ -799,7 +784,7 @@ TWO ONE
          data-message-zero=""
          data-message-one=""
          data-message-other="">
-         24 posts found
+         26 posts found
       </p>
     </div>
   </div>

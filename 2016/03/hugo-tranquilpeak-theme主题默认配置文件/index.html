@@ -276,184 +276,181 @@
 <h3 id="提供默认配置文件-请多注意里面的主要说明">提供默认配置文件，请多注意里面的主要说明。</h3>
 
 <p>地址来源： <a href="https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/exampleSite/config.toml">https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/exampleSite/config.toml</a></p>
+<div class="highlight"><pre class="chroma"><code class="language-tmol" data-lang="tmol"><span class="err">#</span> <span class="nx">Tranquilpeak</span>
+<span class="err">#</span> <span class="nx">Version</span> <span class="p">:</span> <span class="mf">0.2.2</span><span class="o">-</span><span class="nx">ALPHA</span>
+<span class="err">#</span> <span class="nx">Author</span> <span class="p">:</span> <span class="nx">Thibaud</span> <span class="nx">Leprêtre</span>
 
-<pre><code class="language-tmol"># Tranquilpeak
-# Version : 0.2.2-ALPHA
-# Author : Thibaud Leprêtre
+<span class="err">#</span> <span class="nx">I</span> <span class="nx">STRONGLY</span> <span class="nx">recommend</span> <span class="nx">you</span> <span class="nx">to</span> <span class="nx">use</span> <span class="nx">a</span> <span class="nx">CDN</span> <span class="nx">to</span> <span class="nx">speed</span> <span class="nx">up</span> <span class="nx">loading</span> <span class="nx">of</span> <span class="nx">pages</span><span class="p">.</span>
+<span class="err">#</span> <span class="nx">There</span> <span class="nx">is</span> <span class="nx">many</span> <span class="nx">free</span> <span class="nx">CDN</span> <span class="nx">like</span> <span class="nx">Cloudinary</span> <span class="nx">or</span> <span class="nx">you</span> <span class="nx">can</span> <span class="nx">also</span> <span class="nx">use</span> <span class="nx">indirectly</span>
+<span class="err">#</span> <span class="nx">by</span> <span class="nx">using</span> <span class="nx">services</span> <span class="nx">like</span> <span class="nx">Google</span> <span class="nx">Photos</span><span class="p">.</span>
 
-# I STRONGLY recommend you to use a CDN to speed up loading of pages.
-# There is many free CDN like Cloudinary or you can also use indirectly
-# by using services like Google Photos.
+<span class="err">#</span> <span class="nx">If</span> <span class="nx">you</span> <span class="nx">want</span> <span class="nx">to</span> <span class="nx">store</span> <span class="nx">images</span> <span class="nx">yourself</span><span class="p">,</span> <span class="nx">please</span> <span class="nx">read</span> <span class="nx">this</span> <span class="nx">guidelines</span><span class="p">:</span>
+<span class="err">#</span> <span class="nx">For</span> <span class="nx">users</span><span class="p">,</span> <span class="k">if</span> <span class="nx">you</span> <span class="nx">only</span> <span class="nx">use</span> <span class="nx">this</span> <span class="nx">theme</span><span class="p">,</span> <span class="nx">put</span> <span class="nx">your</span> <span class="nx">images</span> <span class="nx">directly</span> <span class="nx">in</span> <span class="s">`source/assets/images`</span> <span class="nx">folder</span>
+<span class="err">#</span> <span class="nx">But</span> <span class="k">if</span> <span class="nx">you</span> <span class="nx">want</span> <span class="nx">to</span> <span class="nx">add</span> <span class="nx">local</span> <span class="nx">images</span><span class="p">,</span> <span class="nx">you</span> <span class="nx">can</span> <span class="nx">put</span> <span class="nx">your</span> <span class="nx">images</span> <span class="nx">directly</span> <span class="nx">in</span> <span class="s">`source/assets/images`</span> <span class="nx">folder</span>
+<span class="err">#</span> <span class="nx">For</span> <span class="nx">developpers</span><span class="p">,</span> <span class="k">if</span> <span class="nx">you</span> <span class="nx">modify</span> <span class="nx">this</span> <span class="nx">theme</span><span class="p">,</span> <span class="nx">put</span> <span class="nx">your</span> <span class="nx">images</span> <span class="nx">in</span> <span class="s">`source/images`</span> <span class="nx">folder</span> <span class="nx">and</span>
+<span class="err">#</span> <span class="nx">use</span> <span class="nx">grunt</span> <span class="nx">task</span> <span class="s">`build`</span> <span class="nx">to</span> <span class="nx">synchronize</span> <span class="nx">assets</span>
 
-# If you want to store images yourself, please read this guidelines:
-# For users, if you only use this theme, put your images directly in `source/assets/images` folder
-# But if you want to add local images, you can put your images directly in `source/assets/images` folder
-# For developpers, if you modify this theme, put your images in `source/images` folder and
-# use grunt task `build` to synchronize assets
+<span class="nx">baseurl</span> <span class="p">=</span> <span class="s">&#34;&#34;</span>
+<span class="nx">languageCode</span> <span class="p">=</span> <span class="s">&#34;en-us&#34;</span>
+<span class="nx">defaultContentLanguage</span> <span class="p">=</span> <span class="s">&#34;en-us&#34;</span>
+<span class="nx">title</span> <span class="p">=</span> <span class="s">&#34;Hugo tranquilpeak theme&#34;</span>
+<span class="nx">theme</span> <span class="p">=</span> <span class="s">&#34;hugo-tranquilpeak-theme&#34;</span>
+<span class="nx">disqusShortname</span> <span class="p">=</span> <span class="s">&#34;hugo-tranquilpeak-theme&#34;</span>
+<span class="err">#</span> <span class="nx">googleAnalytics</span> <span class="p">=</span> <span class="s">&#34;UA-123-45&#34;</span>
+<span class="nx">paginate</span> <span class="p">=</span> <span class="mi">7</span>
+<span class="nx">canonifyurls</span> <span class="p">=</span> <span class="kc">true</span>
 
-baseurl = &quot;&quot;
-languageCode = &quot;en-us&quot;
-defaultContentLanguage = &quot;en-us&quot;
-title = &quot;Hugo tranquilpeak theme&quot;
-theme = &quot;hugo-tranquilpeak-theme&quot;
-disqusShortname = &quot;hugo-tranquilpeak-theme&quot;
-# googleAnalytics = &quot;UA-123-45&quot;
-paginate = 7
-canonifyurls = true
+<span class="p">[</span><span class="nx">permalinks</span><span class="p">]</span>
+  <span class="nx">post</span> <span class="p">=</span> <span class="s">&#34;/:year/:month/:slug/&#34;</span>
 
-[permalinks]
-  post = &quot;/:year/:month/:slug/&quot;
+<span class="p">[</span><span class="nx">taxonomies</span><span class="p">]</span>
+  <span class="nx">tag</span> <span class="p">=</span> <span class="s">&#34;tags&#34;</span>
+  <span class="nx">category</span> <span class="p">=</span> <span class="s">&#34;categories&#34;</span>
+  <span class="nx">archive</span> <span class="p">=</span> <span class="s">&#34;archives&#34;</span>
 
-[taxonomies]
-  tag = &quot;tags&quot;
-  category = &quot;categories&quot;
-  archive = &quot;archives&quot;
+<span class="p">[</span><span class="nx">author</span><span class="p">]</span>
+  <span class="nx">name</span> <span class="p">=</span> <span class="s">&#34;Firstname Lastname&#34;</span>
+  <span class="nx">bio</span> <span class="p">=</span> <span class="s">&#34;Super bio with markdown support **COOL**&#34;</span>
+  <span class="nx">job</span> <span class="p">=</span> <span class="s">&#34;Your job title&#34;</span>
+  <span class="nx">location</span> <span class="p">=</span> <span class="s">&#34;France&#34;</span>
+  <span class="err">#</span> <span class="nx">Your</span> <span class="nx">Gravatar</span> <span class="nx">email</span><span class="p">.</span> <span class="nx">Overwrite</span> <span class="s">`author.picture`</span> <span class="nx">everywhere</span> <span class="nx">in</span> <span class="nx">the</span> <span class="nx">blog</span>
+  <span class="nx">gravatarEmail</span> <span class="p">=</span> <span class="s">&#34;thibaud.lepretre@gmail.com&#34;</span>
+  <span class="err">#</span> <span class="nx">Your</span> <span class="nx">profile</span> <span class="nx">picture</span>
+  <span class="err">#</span> <span class="nx">Overwritten</span> <span class="nx">by</span> <span class="nx">your</span> <span class="nx">gravatar</span> <span class="nx">image</span> <span class="k">if</span> <span class="s">`author.gravatarEmail`</span> <span class="nx">is</span> <span class="nx">filled</span>
+  <span class="nx">picture</span> <span class="p">=</span> <span class="s">&#34;https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png&#34;</span>
+  <span class="err">#</span> <span class="nx">Your</span> <span class="nx">Twitter</span> <span class="nx">username</span> <span class="nx">without</span> <span class="nx">the</span> <span class="err">@</span><span class="p">.</span> <span class="nx">E</span><span class="p">.</span><span class="nx">g</span> <span class="p">:</span> <span class="nx">thibaudlepretre</span>
+  <span class="err">#</span> <span class="nx">twitter</span> <span class="p">=</span> <span class="s">&#34;thibaudlepretre&#34;</span>
+  <span class="err">#</span> <span class="nx">Your</span> <span class="nx">google</span> <span class="nx">plus</span> <span class="nx">profile</span> <span class="nx">id</span><span class="p">.</span> <span class="nx">E</span><span class="p">.</span><span class="nx">g</span> <span class="p">:</span> <span class="o">+</span><span class="nx">ThibaudLepretre</span> <span class="nx">or</span> <span class="mi">114625208755123718311</span>
+  <span class="err">#</span> <span class="nx">googlePlus</span> <span class="p">=</span> <span class="s">&#34;+ThibaudLepretre&#34;</span>
 
-[author]
-  name = &quot;Firstname Lastname&quot;
-  bio = &quot;Super bio with markdown support **COOL**&quot;
-  job = &quot;Your job title&quot;
-  location = &quot;France&quot;
-  # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
-  gravatarEmail = &quot;thibaud.lepretre@gmail.com&quot;
-  # Your profile picture
-  # Overwritten by your gravatar image if `author.gravatarEmail` is filled
-  picture = &quot;https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png&quot;
-  # Your Twitter username without the @. E.g : thibaudlepretre
-  # twitter = &quot;thibaudlepretre&quot;
-  # Your google plus profile id. E.g : +ThibaudLepretre or 114625208755123718311
-  # googlePlus = &quot;+ThibaudLepretre&quot;
+<span class="err">#</span> <span class="nx">Menu</span> <span class="nx">Configuration</span>
+<span class="p">[[</span><span class="nx">menu</span><span class="p">.</span><span class="nx">main</span><span class="p">]]</span>
+  <span class="nx">weight</span> <span class="p">=</span> <span class="mi">0</span>
+  <span class="nx">identifier</span> <span class="p">=</span> <span class="s">&#34;home&#34;</span>
+  <span class="nx">name</span> <span class="p">=</span> <span class="s">&#34;Home&#34;</span>
+  <span class="nx">pre</span> <span class="p">=</span> <span class="s">&#34;&lt;i class=\&#34;sidebar-button-icon fa fa-lg fa-home\&#34;&gt;&lt;/i&gt;&#34;</span>
+  <span class="nx">url</span> <span class="p">=</span> <span class="s">&#34;/&#34;</span>
+<span class="p">[[</span><span class="nx">menu</span><span class="p">.</span><span class="nx">main</span><span class="p">]]</span>
+  <span class="nx">weight</span> <span class="p">=</span> <span class="mi">1</span>
+  <span class="nx">identifier</span> <span class="p">=</span> <span class="s">&#34;categories&#34;</span>
+  <span class="nx">name</span> <span class="p">=</span> <span class="s">&#34;Categories&#34;</span>
+  <span class="nx">pre</span> <span class="p">=</span> <span class="s">&#34;&lt;i class=\&#34;sidebar-button-icon fa fa-lg fa-bookmark\&#34;&gt;&lt;/i&gt;&#34;</span>
+  <span class="nx">url</span> <span class="p">=</span> <span class="s">&#34;/categories&#34;</span>
+<span class="p">[[</span><span class="nx">menu</span><span class="p">.</span><span class="nx">main</span><span class="p">]]</span>
+  <span class="nx">weight</span> <span class="p">=</span> <span class="mi">2</span>
+  <span class="nx">identifier</span> <span class="p">=</span> <span class="s">&#34;tags&#34;</span>
+  <span class="nx">name</span> <span class="p">=</span> <span class="s">&#34;Tags&#34;</span>
+  <span class="nx">pre</span> <span class="p">=</span> <span class="s">&#34;&lt;i class=\&#34;sidebar-button-icon fa fa-lg fa-tags\&#34;&gt;&lt;/i&gt;&#34;</span>
+  <span class="nx">url</span> <span class="p">=</span> <span class="s">&#34;/tags&#34;</span>
+<span class="p">[[</span><span class="nx">menu</span><span class="p">.</span><span class="nx">main</span><span class="p">]]</span>
+  <span class="nx">weight</span> <span class="p">=</span> <span class="mi">3</span>
+  <span class="nx">identifier</span> <span class="p">=</span> <span class="s">&#34;archives&#34;</span>
+  <span class="nx">name</span> <span class="p">=</span> <span class="s">&#34;Archives&#34;</span>
+  <span class="nx">pre</span> <span class="p">=</span> <span class="s">&#34;&lt;i class=\&#34;sidebar-button-icon fa fa-lg fa-archive\&#34;&gt;&lt;/i&gt;&#34;</span>
+  <span class="nx">url</span> <span class="p">=</span> <span class="s">&#34;/archives&#34;</span>
+<span class="p">[[</span><span class="nx">menu</span><span class="p">.</span><span class="nx">main</span><span class="p">]]</span>
+  <span class="nx">weight</span> <span class="p">=</span> <span class="mi">4</span>
+  <span class="nx">identifier</span> <span class="p">=</span> <span class="s">&#34;about&#34;</span>
+  <span class="nx">name</span> <span class="p">=</span> <span class="s">&#34;About&#34;</span>
+  <span class="nx">pre</span> <span class="p">=</span> <span class="s">&#34;&lt;i class=\&#34;sidebar-button-icon fa fa-lg fa-question\&#34;&gt;&lt;/i&gt;&#34;</span>
+  <span class="nx">url</span> <span class="p">=</span> <span class="s">&#34;/#about&#34;</span>
 
-# Menu Configuration
-[[menu.main]]
-  weight = 0
-  identifier = &quot;home&quot;
-  name = &quot;Home&quot;
-  pre = &quot;&lt;i class=\&quot;sidebar-button-icon fa fa-lg fa-home\&quot;&gt;&lt;/i&gt;&quot;
-  url = &quot;/&quot;
-[[menu.main]]
-  weight = 1
-  identifier = &quot;categories&quot;
-  name = &quot;Categories&quot;
-  pre = &quot;&lt;i class=\&quot;sidebar-button-icon fa fa-lg fa-bookmark\&quot;&gt;&lt;/i&gt;&quot;
-  url = &quot;/categories&quot;
-[[menu.main]]
-  weight = 2
-  identifier = &quot;tags&quot;
-  name = &quot;Tags&quot;
-  pre = &quot;&lt;i class=\&quot;sidebar-button-icon fa fa-lg fa-tags\&quot;&gt;&lt;/i&gt;&quot;
-  url = &quot;/tags&quot;
-[[menu.main]]
-  weight = 3
-  identifier = &quot;archives&quot;
-  name = &quot;Archives&quot;
-  pre = &quot;&lt;i class=\&quot;sidebar-button-icon fa fa-lg fa-archive\&quot;&gt;&lt;/i&gt;&quot;
-  url = &quot;/archives&quot;
-[[menu.main]]
-  weight = 4
-  identifier = &quot;about&quot;
-  name = &quot;About&quot;
-  pre = &quot;&lt;i class=\&quot;sidebar-button-icon fa fa-lg fa-question\&quot;&gt;&lt;/i&gt;&quot;
-  url = &quot;/#about&quot;
+<span class="p">[[</span><span class="nx">menu</span><span class="p">.</span><span class="nx">links</span><span class="p">]]</span>
+  <span class="nx">weight</span> <span class="p">=</span> <span class="mi">0</span>
+  <span class="nx">identifier</span> <span class="p">=</span> <span class="s">&#34;github&#34;</span>
+  <span class="nx">name</span> <span class="p">=</span> <span class="s">&#34;GitHub&#34;</span>
+  <span class="nx">pre</span> <span class="p">=</span> <span class="s">&#34;&lt;i class=\&#34;sidebar-button-icon fa fa-lg fa-github\&#34;&gt;&lt;/i&gt;&#34;</span>
+  <span class="nx">url</span> <span class="p">=</span> <span class="s">&#34;https://github.com/kakawait&#34;</span>
+<span class="p">[[</span><span class="nx">menu</span><span class="p">.</span><span class="nx">links</span><span class="p">]]</span>
+  <span class="nx">weight</span> <span class="p">=</span> <span class="mi">1</span>
+  <span class="nx">identifier</span> <span class="p">=</span> <span class="s">&#34;stackoverflow&#34;</span>
+  <span class="nx">name</span> <span class="p">=</span> <span class="s">&#34;Stack Overflow&#34;</span>
+  <span class="nx">pre</span> <span class="p">=</span> <span class="s">&#34;&lt;i class=\&#34;sidebar-button-icon fa fa-lg fa-stack-overflow\&#34;&gt;&lt;/i&gt;&#34;</span>
+  <span class="nx">url</span> <span class="p">=</span> <span class="s">&#34;https://stackoverflow.com/users/636472/kakawait&#34;</span>
 
-[[menu.links]]
-  weight = 0
-  identifier = &quot;github&quot;
-  name = &quot;GitHub&quot;
-  pre = &quot;&lt;i class=\&quot;sidebar-button-icon fa fa-lg fa-github\&quot;&gt;&lt;/i&gt;&quot;
-  url = &quot;https://github.com/kakawait&quot;
-[[menu.links]]
-  weight = 1
-  identifier = &quot;stackoverflow&quot;
-  name = &quot;Stack Overflow&quot;
-  pre = &quot;&lt;i class=\&quot;sidebar-button-icon fa fa-lg fa-stack-overflow\&quot;&gt;&lt;/i&gt;&quot;
-  url = &quot;https://stackoverflow.com/users/636472/kakawait&quot;
+<span class="p">[[</span><span class="nx">menu</span><span class="p">.</span><span class="nx">misc</span><span class="p">]]</span>
+  <span class="nx">weight</span> <span class="p">=</span> <span class="mi">0</span>
+  <span class="nx">identifier</span> <span class="p">=</span> <span class="s">&#34;rss&#34;</span>
+  <span class="nx">name</span> <span class="p">=</span> <span class="s">&#34;RSS&#34;</span>
+  <span class="nx">pre</span> <span class="p">=</span> <span class="s">&#34;&lt;i class=\&#34;sidebar-button-icon fa fa-lg fa-rss\&#34;&gt;&lt;/i&gt;&#34;</span>
+  <span class="nx">url</span> <span class="p">=</span> <span class="s">&#34;/index.xml&#34;</span>
 
-[[menu.misc]]
-  weight = 0
-  identifier = &quot;rss&quot;
-  name = &quot;RSS&quot;
-  pre = &quot;&lt;i class=\&quot;sidebar-button-icon fa fa-lg fa-rss\&quot;&gt;&lt;/i&gt;&quot;
-  url = &quot;/index.xml&quot;
+<span class="p">[</span><span class="nx">params</span><span class="p">]</span>
+  <span class="err">#</span> <span class="nx">Customize</span> <span class="nx">date</span> <span class="nx">format</span> <span class="nx">use</span> <span class="nx">to</span> <span class="nx">render</span> <span class="nx">blog</span> <span class="nx">post</span> <span class="nx">date</span><span class="p">,</span> <span class="nx">categories</span> <span class="nx">and</span> <span class="nx">other</span>
+  <span class="err">#</span> <span class="nx">You</span> <span class="nx">must</span> <span class="nx">use</span> <span class="nx">date</span> <span class="nx">format</span> <span class="nx">used</span> <span class="nx">by</span> <span class="nx">Go</span> <span class="nx">Time</span> <span class="kn">package</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//golang.org/pkg/time/
+</span><span class="c1"></span>  <span class="err">#</span> <span class="nx">Months</span> <span class="p">(</span><span class="nx">not</span> <span class="nx">work</span> <span class="nx">with</span> <span class="nx">short</span> <span class="nx">month</span> <span class="nx">like</span> <span class="s">&#34;jan&#34;</span><span class="p">,</span> <span class="s">&#34;feb&#34;</span><span class="p">,</span> <span class="nx">etc</span><span class="p">)</span> <span class="nx">are</span> <span class="nx">translated</span> <span class="k">if</span> <span class="nx">translation</span> <span class="nx">exists</span> <span class="nx">on</span> <span class="nx">i18n</span> <span class="nx">folders</span>
+  <span class="err">#</span> <span class="nx">Default</span> <span class="nx">format</span> <span class="nx">is</span><span class="p">:</span> <span class="nx">January</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2006</span>
+  <span class="err">#</span> <span class="nx">dateFormat</span> <span class="p">=</span> <span class="s">&#34;2 January 2006&#34;</span>
 
-[params]
-  # Customize date format use to render blog post date, categories and other
-  # You must use date format used by Go Time package https://golang.org/pkg/time/
-  # Months (not work with short month like &quot;jan&quot;, &quot;feb&quot;, etc) are translated if translation exists on i18n folders
-  # Default format is: January 2, 2006
-  # dateFormat = &quot;2 January 2006&quot;
+  <span class="err">#</span> <span class="nx">Global</span> <span class="nx">keywords</span> <span class="nx">configuration</span><span class="p">.</span> <span class="nx">Following</span> <span class="nx">keywords</span> <span class="nx">will</span> <span class="nx">be</span> <span class="nx">add</span> <span class="nx">to</span> <span class="nx">every</span> <span class="nx">pages</span>
+  <span class="err">#</span> <span class="nx">keywords</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;development&#34;</span><span class="p">,</span> <span class="s">&#34;next-gen&#34;</span><span class="p">]</span>
 
-  # Global keywords configuration. Following keywords will be add to every pages
-  # keywords = [&quot;development&quot;, &quot;next-gen&quot;]
+  <span class="err">#</span> <span class="nx">Hide</span> <span class="nx">sidebar</span> <span class="nx">on</span> <span class="nx">all</span> <span class="nx">article</span> <span class="nx">page</span> <span class="nx">to</span> <span class="nx">let</span> <span class="nx">article</span> <span class="nx">take</span> <span class="nx">full</span> <span class="nx">width</span> <span class="nx">to</span> <span class="nx">improve</span> <span class="nx">reading</span><span class="p">,</span> <span class="nx">and</span> <span class="nx">enjoy</span> <span class="nx">wide</span> <span class="nx">images</span> <span class="nx">and</span> <span class="nx">cover</span> <span class="nx">images</span><span class="p">.</span> <span class="p">(</span><span class="kc">true</span><span class="p">:</span> <span class="nx">enable</span><span class="p">,</span> <span class="kc">false</span><span class="p">:</span> <span class="nx">disable</span><span class="p">)</span>
+  <span class="nx">clearReading</span> <span class="p">=</span> <span class="kc">true</span>
 
-  # Hide sidebar on all article page to let article take full width to improve reading, and enjoy wide images and cover images. (true: enable, false: disable)
-  clearReading = true
+  <span class="err">#</span> <span class="nx">Define</span> <span class="nx">categories</span> <span class="nx">will</span> <span class="nx">create</span> <span class="nx">hierarchy</span> <span class="nx">between</span> <span class="nx">parents</span><span class="p">:</span> <span class="s">`categories = [&#34;foo&#34;, &#34;bar&#34;]`</span> <span class="nx">will</span> <span class="nx">consider</span> <span class="s">&#34;bar&#34;</span> <span class="nx">a</span> <span class="nx">sub</span><span class="o">-</span><span class="nx">category</span> <span class="nx">of</span> <span class="s">&#34;foo&#34;</span><span class="p">.</span>
+  <span class="err">#</span> <span class="nx">If</span> <span class="kc">false</span> <span class="nx">it</span> <span class="nx">will</span> <span class="nx">flat</span> <span class="nx">categories</span><span class="p">.</span>
+  <span class="nx">hierarchicalCategories</span> <span class="p">=</span> <span class="kc">true</span>
 
-  # Define categories will create hierarchy between parents: `categories = [&quot;foo&quot;, &quot;bar&quot;]` will consider &quot;bar&quot; a sub-category of &quot;foo&quot;.
-  # If false it will flat categories.
-  hierarchicalCategories = true
+  <span class="nx">description</span> <span class="p">=</span> <span class="s">&#34;Hugo tranquilpeak theme demo&#34;</span>
 
-  description = &quot;Hugo tranquilpeak theme demo&quot;
+  <span class="err">#</span> <span class="nx">Customization</span>
+  <span class="err">#</span> <span class="nx">Define</span> <span class="nx">the</span> <span class="nx">behavior</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">sidebar</span>
+  <span class="err">#</span> <span class="mi">1</span><span class="p">:</span> <span class="nx">Display</span> <span class="nx">extra</span> <span class="nx">large</span> <span class="nx">sidebar</span> <span class="nx">on</span> <span class="nx">extra</span> <span class="nx">large</span> <span class="nx">screen</span><span class="p">,</span> <span class="nx">large</span> <span class="nx">sidebar</span> <span class="nx">on</span> <span class="nx">large</span> <span class="nx">screen</span><span class="p">,</span>
+  <span class="err">#</span>    <span class="nx">medium</span> <span class="nx">sidebar</span> <span class="nx">on</span> <span class="nx">medium</span> <span class="nx">screen</span> <span class="nx">and</span> <span class="nx">header</span> <span class="nx">bar</span> <span class="nx">on</span> <span class="nx">small</span> <span class="nx">screen</span> <span class="nx">and</span>
+  <span class="err">#</span> <span class="nx">extra</span> <span class="nx">large</span> <span class="nx">sidebar</span> <span class="nx">is</span> <span class="nx">swiped</span> <span class="nx">on</span> <span class="nx">extra</span> <span class="nx">large</span> <span class="nx">screen</span> <span class="nx">and</span> <span class="nx">large</span> <span class="nx">sidebar</span> <span class="nx">on</span> <span class="nx">all</span> <span class="nx">lower</span> <span class="nx">screen</span> <span class="p">(</span><span class="k">default</span><span class="p">)</span>
+  <span class="err">#</span> <span class="mi">2</span><span class="p">:</span> <span class="nx">Display</span> <span class="nx">large</span> <span class="nx">sidebar</span> <span class="nx">on</span> <span class="nx">large</span> <span class="nx">screen</span><span class="p">,</span> <span class="nx">medium</span> <span class="nx">sidebar</span> <span class="nx">on</span> <span class="nx">medium</span> <span class="nx">screen</span> <span class="nx">and</span>
+  <span class="err">#</span>    <span class="nx">header</span> <span class="nx">bar</span> <span class="nx">on</span> <span class="nx">small</span> <span class="nx">screen</span> <span class="nx">and</span> <span class="nx">large</span> <span class="nx">sidebar</span> <span class="nx">is</span> <span class="nx">swiped</span>
+  <span class="err">#</span> <span class="mi">3</span><span class="p">:</span> <span class="nx">Display</span> <span class="nx">medium</span> <span class="nx">sidebar</span> <span class="nx">on</span> <span class="nx">large</span> <span class="nx">and</span> <span class="nx">medium</span> <span class="nx">screen</span> <span class="nx">and</span> <span class="nx">header</span> <span class="nx">bar</span> <span class="nx">on</span> <span class="nx">small</span> <span class="nx">screen</span> <span class="nx">and</span>
+  <span class="err">#</span>    <span class="nx">medium</span> <span class="nx">sidebar</span> <span class="nx">is</span> <span class="nx">swiped</span>
+  <span class="err">#</span> <span class="mi">4</span><span class="p">:</span> <span class="nx">Display</span> <span class="nx">header</span> <span class="nx">bar</span> <span class="nx">on</span> <span class="nx">all</span> <span class="nx">screens</span><span class="p">,</span> <span class="nx">extra</span> <span class="nx">large</span> <span class="nx">sidebar</span> <span class="nx">is</span> <span class="nx">swiped</span> <span class="nx">on</span> <span class="nx">extra</span> <span class="nx">large</span> <span class="nx">screen</span> <span class="nx">and</span>
+  <span class="err">#</span>    <span class="nx">large</span> <span class="nx">sidebar</span> <span class="nx">is</span> <span class="nx">swiped</span> <span class="nx">on</span> <span class="nx">all</span> <span class="nx">lower</span> <span class="nx">screens</span>
+  <span class="err">#</span> <span class="mi">5</span><span class="p">:</span> <span class="nx">Display</span> <span class="nx">header</span> <span class="nx">bar</span> <span class="nx">on</span> <span class="nx">all</span> <span class="nx">screens</span> <span class="nx">and</span> <span class="nx">large</span> <span class="nx">sidebar</span> <span class="nx">is</span> <span class="nx">swiped</span> <span class="nx">on</span> <span class="nx">large</span> <span class="nx">screen</span>
+  <span class="err">#</span> <span class="mi">6</span><span class="p">:</span> <span class="nx">Display</span> <span class="nx">header</span> <span class="nx">bar</span> <span class="nx">on</span> <span class="nx">all</span> <span class="nx">screens</span> <span class="nx">and</span> <span class="nx">medium</span> <span class="nx">sidebar</span> <span class="nx">is</span> <span class="nx">swiped</span>
+  <span class="nx">sidebarBehavior</span> <span class="p">=</span> <span class="mi">1</span>
 
-  # Customization
-  # Define the behavior of the sidebar
-  # 1: Display extra large sidebar on extra large screen, large sidebar on large screen,
-  #    medium sidebar on medium screen and header bar on small screen and
-  # extra large sidebar is swiped on extra large screen and large sidebar on all lower screen (default)
-  # 2: Display large sidebar on large screen, medium sidebar on medium screen and
-  #    header bar on small screen and large sidebar is swiped
-  # 3: Display medium sidebar on large and medium screen and header bar on small screen and
-  #    medium sidebar is swiped
-  # 4: Display header bar on all screens, extra large sidebar is swiped on extra large screen and
-  #    large sidebar is swiped on all lower screens
-  # 5: Display header bar on all screens and large sidebar is swiped on large screen
-  # 6: Display header bar on all screens and medium sidebar is swiped
-  sidebarBehavior = 1
+  <span class="err">#</span> <span class="nx">Your</span> <span class="nx">blog</span> <span class="nx">cover</span> <span class="nx">picture</span><span class="p">.</span> <span class="nx">I</span> <span class="nx">STRONGLY</span> <span class="nx">recommend</span> <span class="nx">you</span> <span class="nx">to</span> <span class="nx">use</span> <span class="nx">a</span> <span class="nx">CDN</span> <span class="nx">to</span> <span class="nx">speed</span> <span class="nx">up</span> <span class="nx">loading</span> <span class="nx">of</span> <span class="nx">pages</span><span class="p">.</span>
+  <span class="err">#</span> <span class="nx">There</span> <span class="nx">is</span> <span class="nx">many</span> <span class="nx">free</span> <span class="nx">CDN</span> <span class="nx">like</span> <span class="nx">Cloudinary</span> <span class="nx">or</span> <span class="nx">you</span> <span class="nx">can</span> <span class="nx">also</span> <span class="nx">use</span> <span class="nx">indirectly</span>
+  <span class="err">#</span> <span class="nx">by</span> <span class="nx">using</span> <span class="nx">services</span> <span class="nx">like</span> <span class="nx">Google</span> <span class="nx">Photos</span><span class="p">.</span>
+  <span class="err">#</span> <span class="nx">Current</span> <span class="nx">image</span> <span class="nx">is</span> <span class="nx">on</span> <span class="nx">AWS</span> <span class="nx">S3</span> <span class="nx">and</span> <span class="nx">delivered</span> <span class="nx">by</span> <span class="nx">AWS</span> <span class="nx">CloudFront</span><span class="p">.</span>
+  <span class="err">#</span> <span class="nx">Otherwise</span> <span class="nx">put</span> <span class="nx">your</span> <span class="nx">image</span> <span class="nx">in</span> <span class="nx">folder</span> <span class="s">`static/_images/`</span> <span class="p">(</span><span class="nx">development</span><span class="p">)</span>  <span class="nx">or</span> <span class="nx">in</span> <span class="s">`source/assets/images/`</span> <span class="k">if</span> <span class="nx">you</span> <span class="nx">can</span><span class="err">&#39;</span><span class="nx">t</span> <span class="nx">or</span> <span class="nx">don</span><span class="err">&#39;</span><span class="nx">t</span> <span class="nx">want</span> <span class="nx">to</span> <span class="nx">build</span> <span class="nx">the</span> <span class="nx">theme</span><span class="p">,</span>
+  <span class="err">#</span> <span class="nx">and</span> <span class="nx">use</span> <span class="nx">relative</span> <span class="nx">url</span> <span class="p">:</span> <span class="s">`your-image.png`</span>
+  <span class="nx">coverImage</span> <span class="p">=</span> <span class="s">&#34;cover.jpg&#34;</span>
 
-  # Your blog cover picture. I STRONGLY recommend you to use a CDN to speed up loading of pages.
-  # There is many free CDN like Cloudinary or you can also use indirectly
-  # by using services like Google Photos.
-  # Current image is on AWS S3 and delivered by AWS CloudFront.
-  # Otherwise put your image in folder `static/_images/` (development)  or in `source/assets/images/` if you can't or don't want to build the theme,
-  # and use relative url : `your-image.png`
-  coverImage = &quot;cover.jpg&quot;
+  <span class="err">#</span> <span class="nx">Display</span> <span class="nx">an</span> <span class="nx">image</span> <span class="nx">gallery</span> <span class="nx">at</span> <span class="nx">the</span> <span class="nx">end</span> <span class="nx">of</span> <span class="nx">a</span> <span class="nx">post</span> <span class="nx">which</span> <span class="nx">have</span> <span class="nx">photos</span> <span class="nx">variables</span> <span class="p">(</span><span class="kc">false</span><span class="p">:</span> <span class="nx">disabled</span><span class="p">,</span> <span class="kc">true</span><span class="p">:</span> <span class="nx">enabled</span><span class="p">)</span>
+  <span class="nx">imageGallery</span> <span class="p">=</span> <span class="kc">true</span>
 
-  # Display an image gallery at the end of a post which have photos variables (false: disabled, true: enabled)
-  imageGallery = true
+  <span class="err">#</span> <span class="nx">Display</span> <span class="nx">thumbnail</span> <span class="nx">image</span> <span class="nx">of</span> <span class="nx">each</span> <span class="nx">post</span> <span class="nx">on</span> <span class="nx">index</span> <span class="nx">pages</span> <span class="p">(</span><span class="kc">false</span><span class="p">:</span> <span class="nx">disabled</span><span class="p">,</span> <span class="kc">true</span><span class="p">:</span> <span class="nx">enabled</span><span class="p">)</span>
+  <span class="nx">thumbnailImage</span> <span class="p">=</span> <span class="kc">true</span>
+  <span class="err">#</span> <span class="nx">Display</span> <span class="nx">thumbnail</span> <span class="nx">image</span> <span class="nx">at</span> <span class="nx">the</span> <span class="nx">right</span> <span class="nx">of</span> <span class="nx">title</span> <span class="nx">in</span> <span class="nx">index</span> <span class="nx">pages</span> <span class="p">(</span><span class="s">`right`</span><span class="p">,</span> <span class="s">`left`</span> <span class="nx">or</span> <span class="s">`bottom`</span><span class="p">)</span>
+  <span class="err">#</span> <span class="nx">Set</span> <span class="nx">this</span> <span class="nx">value</span> <span class="nx">to</span> <span class="s">`right`</span> <span class="k">if</span> <span class="nx">you</span> <span class="nx">have</span> <span class="nx">old</span> <span class="nx">posts</span> <span class="nx">to</span> <span class="nx">keep</span> <span class="nx">the</span> <span class="nx">old</span> <span class="nx">style</span> <span class="nx">on</span> <span class="nx">them</span>
+  <span class="err">#</span> <span class="nx">and</span> <span class="nx">define</span> <span class="s">`thumbnailImagePosition`</span> <span class="nx">on</span> <span class="nx">a</span> <span class="nx">post</span> <span class="nx">to</span> <span class="nx">overwrite</span> <span class="nx">this</span> <span class="nx">setting</span>
+  <span class="nx">thumbnailImagePosition</span> <span class="p">=</span> <span class="s">&#34;bottom&#34;</span>
+  <span class="err">#</span> <span class="nx">Automatically</span> <span class="k">select</span> <span class="nx">the</span> <span class="nx">cover</span> <span class="nx">image</span> <span class="nx">or</span> <span class="nx">the</span> <span class="nx">first</span> <span class="nx">photo</span> <span class="nx">from</span> <span class="nx">the</span> <span class="nx">gallery</span> <span class="nx">of</span> <span class="nx">a</span> <span class="nx">post</span> <span class="k">if</span> <span class="nx">there</span> <span class="nx">is</span> <span class="nx">no</span> <span class="nx">thumbnail</span> <span class="nx">image</span> <span class="nx">as</span> <span class="nx">the</span> <span class="nx">thumbnail</span> <span class="nx">image</span>
+  <span class="err">#</span> <span class="nx">Set</span> <span class="nx">this</span> <span class="nx">value</span> <span class="nx">to</span> <span class="s">`true`</span> <span class="k">if</span> <span class="nx">you</span> <span class="nx">have</span> <span class="nx">old</span> <span class="nx">posts</span> <span class="nx">that</span> <span class="nx">use</span> <span class="nx">the</span> <span class="nx">cover</span> <span class="nx">image</span> <span class="nx">or</span> <span class="nx">the</span> <span class="nx">first</span> <span class="nx">photo</span> <span class="nx">as</span> <span class="nx">the</span> <span class="nx">thumbnail</span> <span class="nx">image</span>
+  <span class="err">#</span> <span class="nx">and</span> <span class="nx">set</span> <span class="s">`autoThumbnailImage`</span> <span class="nx">to</span> <span class="s">`false`</span> <span class="nx">on</span> <span class="nx">a</span> <span class="nx">post</span> <span class="nx">to</span> <span class="nx">overwrite</span> <span class="nx">this</span> <span class="nx">setting</span>
+  <span class="nx">autoThumbnailImage</span> <span class="p">=</span> <span class="kc">true</span>
 
-  # Display thumbnail image of each post on index pages (false: disabled, true: enabled)
-  thumbnailImage = true
-  # Display thumbnail image at the right of title in index pages (`right`, `left` or `bottom`)
-  # Set this value to `right` if you have old posts to keep the old style on them
-  # and define `thumbnailImagePosition` on a post to overwrite this setting
-  thumbnailImagePosition = &quot;bottom&quot;
-  # Automatically select the cover image or the first photo from the gallery of a post if there is no thumbnail image as the thumbnail image
-  # Set this value to `true` if you have old posts that use the cover image or the first photo as the thumbnail image
-  # and set `autoThumbnailImage` to `false` on a post to overwrite this setting
-  autoThumbnailImage = true
+  <span class="err">#</span> <span class="nx">Header</span> <span class="nx">configuration</span>
+  <span class="err">#</span> <span class="nx">The</span> <span class="nx">link</span> <span class="nx">at</span> <span class="nx">the</span> <span class="nx">right</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">header</span> <span class="nx">is</span> <span class="nx">customizable</span>
+  <span class="err">#</span> <span class="nx">You</span> <span class="nx">can</span> <span class="nx">add</span> <span class="nx">a</span> <span class="nx">link</span> <span class="p">(</span><span class="nx">as</span> <span class="nx">an</span> <span class="nx">icon</span><span class="p">)</span> <span class="nx">at</span> <span class="nx">the</span> <span class="nx">right</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">header</span> <span class="nx">instead</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">author</span><span class="err">&#39;</span><span class="nx">s</span> <span class="nx">gravatar</span> <span class="nx">image</span> <span class="nx">or</span> <span class="nx">author</span><span class="err">&#39;</span><span class="nx">s</span> <span class="nx">picture</span><span class="p">.</span>
+  <span class="err">#</span> <span class="nx">By</span> <span class="k">default</span><span class="p">,</span> <span class="nx">author</span><span class="err">&#39;</span><span class="nx">s</span> <span class="nx">gravatar</span> <span class="nx">or</span> <span class="nx">author</span><span class="err">&#39;</span><span class="nx">s</span> <span class="nx">picture</span> <span class="nx">is</span> <span class="nx">displayed</span><span class="p">.</span>
+  <span class="err">#</span>     <span class="nx">url</span><span class="p">:</span> <span class="o">/</span><span class="err">#</span><span class="nx">search</span>
+  <span class="err">#</span>     <span class="nx">icon</span><span class="p">:</span> <span class="nx">search</span>
+  <span class="err">#</span>     <span class="nx">class</span><span class="p">:</span> <span class="nx">st</span><span class="o">-</span><span class="nx">search</span><span class="o">-</span><span class="nx">show</span><span class="o">-</span><span class="nx">outputs</span>
+  <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">header</span><span class="p">.</span><span class="nx">rightLink</span><span class="p">]</span>
+    <span class="nx">class</span> <span class="p">=</span> <span class="s">&#34;&#34;</span>
+    <span class="nx">icon</span> <span class="p">=</span> <span class="s">&#34;&#34;</span>
+    <span class="nx">url</span> <span class="p">=</span> <span class="s">&#34;/#about&#34;</span>
 
-  # Header configuration
-  # The link at the right of the header is customizable
-  # You can add a link (as an icon) at the right of the header instead of the author's gravatar image or author's picture.
-  # By default, author's gravatar or author's picture is displayed.
-  #     url: /#search
-  #     icon: search
-  #     class: st-search-show-outputs
-  [params.header.rightLink]
-    class = &quot;&quot;
-    icon = &quot;&quot;
-    url = &quot;/#about&quot;
+  <span class="err">#</span> <span class="nx">Customize</span> <span class="nx">like</span> <span class="nx">of</span> <span class="nx">athor</span> <span class="nx">avatar</span> <span class="nx">in</span> <span class="nx">sidebar</span>
+  <span class="err">#</span> <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">sidebar</span><span class="p">.</span><span class="nx">profile</span><span class="p">]</span>
+  <span class="err">#</span>   <span class="nx">url</span> <span class="p">=</span> <span class="s">&#34;/#about&#34;</span>
 
-  # Customize like of athor avatar in sidebar
-  # [params.sidebar.profile]
-  #   url = &quot;/#about&quot;
-
-  # Customize copyright value &quot;© 2016 &lt;CUSTOMIZATION&gt;. All Rights Reserved&quot;
-  # [params.footer]
-  #   copyright = &quot;&lt;a href=\&quot;https://github.com/kakawait\&quot;&gt;kakawait&lt;/a&gt;&quot;
-来源： https://raw.githubusercontent.com/kakawait/hugo-tranquilpeak-theme/master/exampleSite/config.toml
-</code></pre>
-
+  <span class="err">#</span> <span class="nx">Customize</span> <span class="nx">copyright</span> <span class="nx">value</span> <span class="s">&#34;© 2016 &lt;CUSTOMIZATION&gt;. All Rights Reserved&#34;</span>
+  <span class="err">#</span> <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">footer</span><span class="p">]</span>
+  <span class="err">#</span>   <span class="nx">copyright</span> <span class="p">=</span> <span class="s">&#34;&lt;a href=\&#34;https://github.com/kakawait\&#34;&gt;kakawait&lt;/a&gt;&#34;</span>
+<span class="nx">来源</span><span class="err">：</span> <span class="nx">https</span><span class="p">:</span><span class="o">//</span><span class="nx">raw</span><span class="p">.</span><span class="nx">githubusercontent</span><span class="p">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">kakawait</span><span class="o">/</span><span class="nx">hugo</span><span class="o">-</span><span class="nx">tranquilpeak</span><span class="o">-</span><span class="nx">theme</span><span class="o">/</span><span class="nx">master</span><span class="o">/</span><span class="nx">exampleSite</span><span class="o">/</span><span class="nx">config</span><span class="p">.</span><span class="nx">toml</span></code></pre></div>
 <!--more-->
               
             </div>
@@ -844,7 +841,7 @@ canonifyurls = true
          data-message-zero=""
          data-message-one=""
          data-message-other="">
-         24 posts found
+         26 posts found
       </p>
     </div>
   </div>

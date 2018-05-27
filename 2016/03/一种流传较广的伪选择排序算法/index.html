@@ -267,64 +267,58 @@
 
 <p>
 在网上经常看到这种伪选择排序算法,包括自己在第一次编写选择排序时也编写了如下的效率不高的代码:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">publi</span> <span class="kd">class</span> <span class="nc">FalseSort</span> <span class="o">{</span>  
 
-<pre><code class="language-java">publi class FalseSort {  
+<span class="kd">public</span> <span class="nf">FalseSort</span><span class="o">(){</span>  
 
-public FalseSort(){  
+    <span class="kt">int</span> <span class="n">a</span><span class="o">[]={</span><span class="n">1</span><span class="o">,</span><span class="n">54</span><span class="o">,</span><span class="n">6</span><span class="o">,</span><span class="n">3</span><span class="o">,</span><span class="n">78</span><span class="o">,</span><span class="n">34</span><span class="o">,</span><span class="n">12</span><span class="o">,</span><span class="n">45</span><span class="o">};</span>  
 
-    int a[]={1,54,6,3,78,34,12,45};  
+    <span class="kt">int</span> <span class="n">temp</span><span class="o">=</span><span class="n">0</span><span class="o">;</span>  
 
-    int temp=0;  
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>  
 
-    for(int i=0;i&lt;a.length;i++){  
+       <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="n">1</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>  
 
-       for(int j=i+1;j&lt;a.length;j++){  
+       <span class="k">if</span><span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]&gt;</span><span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">]){</span>  
 
-       if(a[i]&gt;a[j]){  
+           <span class="n">temp</span><span class="o">=</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>  
 
-           temp=a[i];  
+           <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>  
 
-           a[i]=a[j];  
+           <span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">]=</span><span class="n">temp</span><span class="o">;</span>  
 
-           a[j]=temp;  
+       <span class="o">}</span>  
 
-       }  
+       <span class="o">}</span>  
 
-       }  
+    <span class="o">}</span>  
 
-    }  
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span>  
 
-    for(int i=0;i&lt;a.length;i++)  
+       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>     
 
-       System.out.println(a[i]);     
+<span class="o">}</span>  
 
-}  
-
-}
-</code></pre>
-
+<span class="o">}</span></code></pre></div>
 <p>在代码第二层<code>for</code>循环中做了一次交换,两层<code>for</code>循环后可能要做<code>n(n-1)/2</code>次交换.
 但在实际的选择排序中,只做n次交换就可以了.真正的选择排序是每次记录最小元素的下标,直到最后才进行交换
 example</p>
-
-<pre><code class="language-java">
-// 选择排序
-    public void selectSort(){
-        int min = 0;
-        long tmp = 0L;
-        for(int i = 0; i &lt; elems -1; i++){
-            min = i;
-            for(int j = i + 1; j &lt; elems; j++) {
-                if(arr[j] &lt; arr[min]) {
-                    min = j;
-                }
-            }
-            tmp = arr[i];
-            arr[i] = arr[min];
-            arr[min] = tmp;
-        }
-    }
-</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// 选择排序
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectSort</span><span class="o">(){</span>
+        <span class="kt">int</span> <span class="n">min</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+        <span class="kt">long</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">0L</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">elems</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+            <span class="n">min</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">elems</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">[</span><span class="n">min</span><span class="o">])</span> <span class="o">{</span>
+                    <span class="n">min</span> <span class="o">=</span> <span class="n">j</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+            <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">min</span><span class="o">];</span>
+            <span class="n">arr</span><span class="o">[</span><span class="n">min</span><span class="o">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span></code></pre></div>
               
             </div>
           </div>
@@ -714,7 +708,7 @@ example</p>
          data-message-zero=""
          data-message-one=""
          data-message-other="">
-         24 posts found
+         26 posts found
       </p>
     </div>
   </div>

@@ -66,6 +66,15 @@
     </item>
     
     <item>
+      <title>Github Theme</title>
+      <link>https://luyuekai.github.io/tags/github-theme/</link>
+      <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/tags/github-theme/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Google Analytics</title>
       <link>https://luyuekai.github.io/tags/google-analytics/</link>
       <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
@@ -89,6 +98,15 @@
       <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
       
       <guid>https://luyuekai.github.io/tags/hexo-theme/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Highlight Code</title>
+      <link>https://luyuekai.github.io/tags/highlight-code/</link>
+      <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/tags/highlight-code/</guid>
       <description></description>
     </item>
     
@@ -201,11 +219,29 @@
     </item>
     
     <item>
+      <title>Tag Plugins</title>
+      <link>https://luyuekai.github.io/tags/tag-plugins/</link>
+      <pubDate>Wed, 29 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/tags/tag-plugins/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Tags</title>
       <link>https://luyuekai.github.io/tags/tags/</link>
       <pubDate>Sat, 16 Aug 2014 00:00:00 +0000</pubDate>
       
       <guid>https://luyuekai.github.io/tags/tags/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>https://luyuekai.github.io/tags/test/</link>
+      <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/tags/test/</guid>
       <description></description>
     </item>
     

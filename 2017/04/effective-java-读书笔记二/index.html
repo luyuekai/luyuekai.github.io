@@ -293,12 +293,9 @@
 <li>如果在编写一个值类,具有非常明显的内在排序关系,如按照字母排序,按数值排序,按年代排序,那应该坚决考虑实现Comparable接口<br /></li>
 </ul></li>
 </ul>
-
-<pre><code class="language-java">  public interface Comparable&lt;T&gt;{
-  int compareTo(T t)
-  }
-</code></pre>
-
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java">  <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Comparable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;{</span>
+  <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="n">T</span> <span class="n">t</span><span class="o">)</span>
+  <span class="o">}</span></code></pre></div>
 <h2 id="第四章-类和接口">第四章 类和接口</h2>
 
 <ul>
@@ -348,13 +345,12 @@ public double y;
 <ul>
 <li>具体的策略类往往使用匿名类声明，下面的语句根据长度对一个字符串数组进行排序：<br /></li>
 
-<li><pre><code class="language-java">Arrays.sort(stringArray,new Comparator&lt;String&gt;(){
-public int compare(String s1,String s2){
-   return  s1.length() - s2.length();
-}  
-}
-)
-</code></pre></li>
+<li><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">stringArray</span><span class="o">,</span><span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;(){</span>
+<span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">String</span> <span class="n">s1</span><span class="o">,</span><span class="n">String</span> <span class="n">s2</span><span class="o">){</span>
+   <span class="k">return</span>  <span class="n">s1</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="n">s2</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+<span class="o">}</span>  
+<span class="o">}</span>
+<span class="o">)</span></code></pre></div></li>
 
 <li><p>注意，采用上述方式使用匿名类时，将会在每次执行调用的时候创建一个新的实例。如果它被重复执行，考虑将函数对象存储到一个私有的静态final域里，并重用它。这样做的另一种好处是，可以为这个函数对象取一个有意义的域名城。</p></li>
 </ul></li>
@@ -754,7 +750,7 @@ public int compare(String s1,String s2){
          data-message-zero=""
          data-message-one=""
          data-message-other="">
-         24 posts found
+         26 posts found
       </p>
     </div>
   </div>

@@ -306,44 +306,39 @@
 </ul>
 
 <p>算法代码:</p>
-
-<pre><code class="language-java">
-    public static int search(String pat, String txt) {
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">search</span><span class="o">(</span><span class="n">String</span> <span class="n">pat</span><span class="o">,</span> <span class="n">String</span> <span class="n">txt</span><span class="o">)</span> <span class="o">{</span>
 
 
 
-        int M = pat.length();
+        <span class="kt">int</span> <span class="n">M</span> <span class="o">=</span> <span class="n">pat</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
 
-        int N = txt.length();
+        <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">txt</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
 
-        for (int i = 0; i &lt;= N - M; i++) {
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">N</span> <span class="o">-</span> <span class="n">M</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
 
-            int j;
+            <span class="kt">int</span> <span class="n">j</span><span class="o">;</span>
 
-            for (j = 0; j &lt; M; j++) {
+            <span class="k">for</span> <span class="o">(</span><span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">M</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
 
-                if (txt.charAt(i + j) != pat.charAt(j)) {
+                <span class="k">if</span> <span class="o">(</span><span class="n">txt</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="o">)</span> <span class="o">!=</span> <span class="n">pat</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">))</span> <span class="o">{</span>
 
-                    break;
+                    <span class="k">break</span><span class="o">;</span>
 
-                }
+                <span class="o">}</span>
 
-            }
+            <span class="o">}</span>
 
-            if (j == M) {
+            <span class="k">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">==</span> <span class="n">M</span><span class="o">)</span> <span class="o">{</span>
 
-                return i;
+                <span class="k">return</span> <span class="n">i</span><span class="o">;</span>
 
-            }
+            <span class="o">}</span>
 
-        }
+        <span class="o">}</span>
 
-        return N;
+        <span class="k">return</span> <span class="n">N</span><span class="o">;</span>
 
-    }
-
-</code></pre>
-
+    <span class="o">}</span></code></pre></div>
 <p>在典型的字符串处理应用程序中,索引j增长的机会很少,因此该算法的运行时间与N成正比.</p>
 
 <hr />
@@ -367,47 +362,43 @@
 <li><p>将i 指向本次匹配的开始位置的下一个字符</p></li>
 </ul></li>
 </ul>
-
-<pre><code class="language-java">
-    public static int search2(String pat, String txt) {
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">search2</span><span class="o">(</span><span class="n">String</span> <span class="n">pat</span><span class="o">,</span> <span class="n">String</span> <span class="n">txt</span><span class="o">)</span> <span class="o">{</span>
 
 
 
-        int j, M = pat.length();
+        <span class="kt">int</span> <span class="n">j</span><span class="o">,</span> <span class="n">M</span> <span class="o">=</span> <span class="n">pat</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
 
-        int i, N = txt.length();
+        <span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="n">N</span> <span class="o">=</span> <span class="n">txt</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
 
-        for (i = 0, j = 0; i &lt; N &amp;&amp; j &lt; M; i++) {
+        <span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">M</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
 
-            if (txt.charAt(i) == pat.charAt(j)) {
+            <span class="k">if</span> <span class="o">(</span><span class="n">txt</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">pat</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">))</span> <span class="o">{</span>
 
-                j++;
+                <span class="n">j</span><span class="o">++;</span>
 
 
 
-            } else {
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
 
-                i -= j;
+                <span class="n">i</span> <span class="o">-=</span> <span class="n">j</span><span class="o">;</span>
 
-                j = 0;
+                <span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
 
-            }
+            <span class="o">}</span>
 
-        }
+        <span class="o">}</span>
 
-        if (j == M) {
+        <span class="k">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">==</span> <span class="n">M</span><span class="o">)</span> <span class="o">{</span>
 
-            return i - M;
+            <span class="k">return</span> <span class="n">i</span> <span class="o">-</span> <span class="n">M</span><span class="o">;</span>
 
-        } else {
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
 
-            return N;
+            <span class="k">return</span> <span class="n">N</span><span class="o">;</span>
 
-        }
+        <span class="o">}</span>
 
-    }
-
-</code></pre>
+    <span class="o">}</span></code></pre></div>
               
             </div>
           </div>
@@ -797,7 +788,7 @@
          data-message-zero=""
          data-message-one=""
          data-message-other="">
-         24 posts found
+         26 posts found
       </p>
     </div>
   </div>
