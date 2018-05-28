@@ -1,0 +1,943 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+
+  
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.40.3 with theme Tranquilpeak 0.4.3-BETA">
+    <title>GRPC小记</title>
+    <meta name="author" content="听风流水">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="https://luyuekai.github.io/favicon.png">
+    
+
+    
+    <meta name="description" content="有一种落差是你配不上自己的野心，也辜负了所受的苦难。
+">
+    <meta property="og:description" content="有一种落差是你配不上自己的野心，也辜负了所受的苦难。
+">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="GRPC小记">
+    <meta property="og:url" content="/2018/05/grpc%E5%B0%8F%E8%AE%B0/">
+    <meta property="og:site_name" content="听风流水的博客">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="听风流水的博客">
+    <meta name="twitter:description" content="有一种落差是你配不上自己的野心，也辜负了所受的苦难。
+">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="http://oneumacbh.bkt.clouddn.com/%E5%A5%B3%E5%B8%9D2.jpg">
+    
+
+    
+      <meta property="og:image" content="https://luyuekai.github.io/img/%E8%B6%8A%E5%8A%AA%E5%8A%9B%E8%B6%8A%E5%B9%B8%E8%BF%90.png">
+    
+    
+      <meta property="og:image" content="https://luyuekai.github.io/img/%E5%B0%91%E5%A5%B3.jpg">
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://luyuekai.github.io/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://luyuekai.github.io/">听风流水的博客</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://luyuekai.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="http://oneumacbh.bkt.clouddn.com/%E5%A5%B3%E5%B8%9D2.jpg" alt="作者的图片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://luyuekai.github.io/#about">
+          <img class="sidebar-profile-picture" src="http://oneumacbh.bkt.clouddn.com/%E5%A5%B3%E5%B8%9D2.jpg" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">听风流水</h4>
+        
+          <h5 class="sidebar-profile-bio"><h2 id="常怀敬畏之心-方能行有所止"><em>　常怀敬畏之心，方能行有所止</em></h2>
+</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://luyuekai.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">分类</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://luyuekai.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://luyuekai.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">归档</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://luyuekai.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link open-algolia-search" href="https://luyuekai.github.io/#search">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+      
+      <span class="sidebar-button-desc">搜索</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://luyuekai.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/636472/kakawait" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+      
+      <span class="sidebar-button-desc">Stack Overflow</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://luyuekai.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/luyuekai" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('/img/%e5%b0%91%e5%a5%b3.jpg')"
+       data-behavior="4">
+    
+      <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      GRPC小记
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-05-27T21:44:08&#43;08:00">
+        
+  五月 27, 2018
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://luyuekai.github.io/categories/%e6%8a%80%e6%9c%af">技术</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p><strong>有一种落差是你配不上自己的野心，也辜负了所受的苦难。</strong>
+</p>
+
+<p>在看分布式书籍及源码解析时，总是可以看到好多分布式框架，如： Hadoop,Spark等。都自身实现了一套自己的RPC机制。 RPC这东西，在看技术博客时，经常能看到，自己也去了解了很多。</p>
+
+<p><strong>RPC</strong>又称远程过程调用（Remote Procedure Call)。 个人理解， 就是一个计算机要去调用另一个计算机上的服务。粗一看，感觉和REST差不多嘛。 其实 RPC和REST之间确实有相似相同之处。RPC更强调快速，高并发吧。
+通常会选择采用什么传输协议（TCP,HTTP,还是其他）。 REST一般都是http来传输的。</p>
+
+<blockquote>
+<p>参考个链接 <a href="https://blog.csdn.net/iter_zc/article/details/39341983">RPC VS REST</a></p>
+</blockquote>
+
+<p>常见的，也经常被使用的RPC框架： Thrift,gRPC. 其他的待补充吧。<br />
+今天在intellij中跑通了 gRPC的一个例子。 把过程记录一下，万一以后会遇到呢~ 嘻嘻</p>
+
+<h3 id="grpc的hello-world实例">gRPC的hello world实例</h3>
+
+<ul>
+<li>一、 IDEA新建 maven项目<br /></li>
+<li>二、 pom.xml中添加如下依赖<br />
+<br /></li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
+         <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+    <span class="nt">&lt;groupId&gt;</span>com.lyk<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>gRPCTest<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;dependencies&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>io.grpc<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>grpc-netty<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>1.12.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>io.grpc<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>grpc-protobuf<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>1.12.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>io.grpc<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>grpc-stub<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>1.12.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;/dependencies&gt;</span>
+    <span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;extensions&gt;</span>
+            <span class="nt">&lt;extension&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>kr.motd.maven<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>os-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>1.5.0.Final<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/extension&gt;</span>
+        <span class="nt">&lt;/extensions&gt;</span>
+        <span class="nt">&lt;plugins&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.xolstice.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>protobuf-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>0.5.1<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;configuration&gt;</span>
+                    <span class="nt">&lt;protocArtifact&gt;</span>com.google.protobuf:protoc:3.5.1-1:exe:${os.detected.classifier}<span class="nt">&lt;/protocArtifact&gt;</span>
+                    <span class="nt">&lt;pluginId&gt;</span>grpc-java<span class="nt">&lt;/pluginId&gt;</span>
+                    <span class="nt">&lt;pluginArtifact&gt;</span>io.grpc:protoc-gen-grpc-java:1.12.0:exe:${os.detected.classifier}<span class="nt">&lt;/pluginArtifact&gt;</span>
+                <span class="nt">&lt;/configuration&gt;</span>
+                <span class="nt">&lt;executions&gt;</span>
+                    <span class="nt">&lt;execution&gt;</span>
+                        <span class="nt">&lt;goals&gt;</span>
+                            <span class="nt">&lt;goal&gt;</span>compile<span class="nt">&lt;/goal&gt;</span>
+                            <span class="nt">&lt;goal&gt;</span>compile-custom<span class="nt">&lt;/goal&gt;</span>
+                        <span class="nt">&lt;/goals&gt;</span>
+                    <span class="nt">&lt;/execution&gt;</span>
+                <span class="nt">&lt;/executions&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;configuration&gt;</span>
+                    <span class="nt">&lt;source&gt;</span>1.6<span class="nt">&lt;/source&gt;</span>
+                    <span class="nt">&lt;target&gt;</span>1.6<span class="nt">&lt;/target&gt;</span>
+                <span class="nt">&lt;/configuration&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+        <span class="nt">&lt;/plugins&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
+<span class="nt">&lt;/project&gt;</span></code></pre></div>
+<ul>
+<li>三、 在<code>main</code>文件夹下创建<code>proto</code>文件夹,专门用来放.proto的文件。<br /></li>
+<li>四、 在proto的文件夹中创建grpc.proto(new 时选择file,自己来添加后缀名)<br />
+grpc.proto的内容:<br /></li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-proto" data-lang="proto"><span class="n">syntax</span> <span class="o">=</span> <span class="s">&#34;proto3&#34;</span><span class="p">;</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="k">option</span> <span class="n">java_multiple_files</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span><span class="err">
+</span><span class="err"></span><span class="k">option</span> <span class="n">java_package</span> <span class="o">=</span> <span class="s">&#34;io.grpc.examples.helloworld&#34;</span><span class="p">;</span><span class="err">
+</span><span class="err"></span><span class="k">option</span> <span class="n">java_outer_classname</span> <span class="o">=</span> <span class="s">&#34;HelloWorldProto&#34;</span><span class="p">;</span><span class="err">
+</span><span class="err"></span><span class="k">option</span> <span class="n">objc_class_prefix</span> <span class="o">=</span> <span class="s">&#34;HLW&#34;</span><span class="p">;</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="kn">package</span> <span class="nn">helloworld</span><span class="p">;</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c1">// The greeting service definition.
+</span><span class="c1"></span><span class="kd">service</span> <span class="n">Greeter</span> <span class="p">{</span><span class="err">
+</span><span class="err"></span>    <span class="c1">// Sends a greeting
+</span><span class="c1"></span>    <span class="k">rpc</span> <span class="n">SayHello</span> <span class="p">(</span><span class="n">HelloRequest</span><span class="p">)</span> <span class="k">returns</span> <span class="p">(</span><span class="n">HelloReply</span><span class="p">)</span> <span class="p">{}</span><span class="err">
+</span><span class="err"></span><span class="p">}</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c1">// The request message containing the user&#39;s name.
+</span><span class="c1"></span><span class="kd">message</span> <span class="nc">HelloRequest</span> <span class="p">{</span><span class="err">
+</span><span class="err"></span>    <span class="kt">string</span> <span class="n">name</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="err">
+</span><span class="err"></span><span class="p">}</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c1">// The response message containing the greetings
+</span><span class="c1"></span><span class="kd">message</span> <span class="nc">HelloReply</span> <span class="p">{</span><span class="err">
+</span><span class="err"></span>    <span class="kt">string</span> <span class="kd">message</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="err">
+</span><span class="err"></span><span class="p">}</span></code></pre></div>
+<ul>
+<li><p>五、 点击右侧 maven compile（第一次运行直接compile就行，以后可能需要先clean）</p></li>
+
+<li><p>六、 在 java目录下，创建<code>HelloWorldClient.java</code>和<code>HelloWorldServer.java</code>文件，文件内容</p></li>
+</ul>
+
+<p>HelloWorldClient.java的文件内容：</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">io.grpc.ManagedChannel</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.grpc.ManagedChannelBuilder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.grpc.examples.helloworld.GreeterGrpc</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.grpc.examples.helloworld.HelloReply</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.grpc.examples.helloworld.HelloRequest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.TimeUnit</span><span class="o">;</span>
+
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorldClient</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">ManagedChannel</span> <span class="n">channel</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">GreeterGrpc</span><span class="o">.</span><span class="na">GreeterBlockingStub</span> <span class="n">blockingStub</span><span class="o">;</span>
+
+
+    <span class="kd">public</span> <span class="nf">HelloWorldClient</span><span class="o">(</span><span class="n">String</span> <span class="n">host</span><span class="o">,</span><span class="kt">int</span> <span class="n">port</span><span class="o">){</span>
+        <span class="n">channel</span> <span class="o">=</span> <span class="n">ManagedChannelBuilder</span><span class="o">.</span><span class="na">forAddress</span><span class="o">(</span><span class="n">host</span><span class="o">,</span><span class="n">port</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">usePlaintext</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+
+        <span class="n">blockingStub</span> <span class="o">=</span> <span class="n">GreeterGrpc</span><span class="o">.</span><span class="na">newBlockingStub</span><span class="o">(</span><span class="n">channel</span><span class="o">);</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">shutdown</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span>
+        <span class="n">channel</span><span class="o">.</span><span class="na">shutdown</span><span class="o">().</span><span class="na">awaitTermination</span><span class="o">(</span><span class="n">5</span><span class="o">,</span> <span class="n">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span>  <span class="kt">void</span> <span class="nf">greet</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">){</span>
+        <span class="n">HelloRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="n">HelloRequest</span><span class="o">.</span><span class="na">newBuilder</span><span class="o">().</span><span class="na">setName</span><span class="o">(</span><span class="n">name</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
+        <span class="n">HelloReply</span>   <span class="n">response</span> <span class="o">=</span> <span class="n">blockingStub</span><span class="o">.</span><span class="na">sayHello</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span>
+        <span class="n">HelloWorldClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HelloWorldClient</span><span class="o">(</span><span class="s">&#34;127.0.0.1&#34;</span><span class="o">,</span><span class="n">50051</span><span class="o">);</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">5</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">client</span><span class="o">.</span><span class="na">greet</span><span class="o">(</span><span class="s">&#34;world:&#34;</span><span class="o">+</span><span class="n">i</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">client</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+<p>HelloWorldServer.java的文件内容：</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">io.grpc.Server</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.grpc.ServerBuilder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.grpc.examples.helloworld.GreeterGrpc</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.grpc.examples.helloworld.HelloReply</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.grpc.examples.helloworld.HelloRequest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.grpc.stub.StreamObserver</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorldServer</span> <span class="o">{</span>
+
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">port</span> <span class="o">=</span> <span class="n">50051</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">Server</span> <span class="n">server</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="n">ServerBuilder</span><span class="o">.</span><span class="na">forPort</span><span class="o">(</span><span class="n">port</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">addService</span><span class="o">(</span><span class="k">new</span> <span class="n">GreeterImpl</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">build</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">start</span><span class="o">();</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;service start...&#34;</span><span class="o">);</span>
+
+        <span class="n">Runtime</span><span class="o">.</span><span class="na">getRuntime</span><span class="o">().</span><span class="na">addShutdownHook</span><span class="o">(</span><span class="k">new</span> <span class="n">Thread</span><span class="o">()</span> <span class="o">{</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+
+                <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;*** shutting down gRPC server since JVM is shutting down&#34;</span><span class="o">);</span>
+                <span class="n">HelloWorldServer</span><span class="o">.</span><span class="na">this</span><span class="o">.</span><span class="na">stop</span><span class="o">();</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;*** server shut down&#34;</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">stop</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">server</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">server</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="c1">// block 一直到退出程序
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">blockUntilShutdown</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">server</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">server</span><span class="o">.</span><span class="na">awaitTermination</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">InterruptedException</span> <span class="o">{</span>
+
+        <span class="kd">final</span> <span class="n">HelloWorldServer</span> <span class="n">server</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HelloWorldServer</span><span class="o">();</span>
+        <span class="n">server</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="n">server</span><span class="o">.</span><span class="na">blockUntilShutdown</span><span class="o">();</span>
+    <span class="o">}</span>
+
+
+    <span class="c1">// 实现 定义一个实现服务接口的类
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">GreeterImpl</span> <span class="kd">extends</span> <span class="n">GreeterGrpc</span><span class="o">.</span><span class="na">GreeterImplBase</span> <span class="o">{</span>
+
+
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">(</span><span class="n">HelloRequest</span> <span class="n">req</span><span class="o">,</span> <span class="n">StreamObserver</span><span class="o">&lt;</span><span class="n">HelloReply</span><span class="o">&gt;</span> <span class="n">responseObserver</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;service:&#34;</span><span class="o">+</span><span class="n">req</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+            <span class="n">HelloReply</span> <span class="n">reply</span> <span class="o">=</span> <span class="n">HelloReply</span><span class="o">.</span><span class="na">newBuilder</span><span class="o">().</span><span class="na">setMessage</span><span class="o">((</span><span class="s">&#34;Hello: &#34;</span> <span class="o">+</span> <span class="n">req</span><span class="o">.</span><span class="na">getName</span><span class="o">())).</span><span class="na">build</span><span class="o">();</span>
+            <span class="n">responseObserver</span><span class="o">.</span><span class="na">onNext</span><span class="o">(</span><span class="n">reply</span><span class="o">);</span>
+            <span class="n">responseObserver</span><span class="o">.</span><span class="na">onCompleted</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+<ul>
+<li><p>七、 先运行Server, 再运行 Client即可。</p>
+
+<h3 id="整个项目的目录结构如下图">整个项目的目录结构如下图：</h3></li>
+</ul>
+
+<p><img src="https://luyuekai.github.io/img/blog_pic/gRPC.png" alt="项目结构目录" /></p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://luyuekai.github.io/2018/05/%E6%AF%8F%E5%91%A8%E4%B8%80%E7%AF%87%E6%97%A5%E8%AE%B0/" data-tooltip="每周一篇日记">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 听风流水. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://luyuekai.github.io/2018/05/%E6%AF%8F%E5%91%A8%E4%B8%80%E7%AF%87%E6%97%A5%E8%AE%B0/" data-tooltip="每周一篇日记">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="http://oneumacbh.bkt.clouddn.com/%E5%A5%B3%E5%B8%9D2.jpg" alt="作者的图片" />
+    
+    <h4 id="about-card-name">听风流水</h4>
+    
+      <div id="about-card-bio"><h2 id="常怀敬畏之心-方能行有所止"><em>　常怀敬畏之心，方能行有所止</em></h2>
+</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        北京邮电大学
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        BeiJing
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="搜索" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center"></div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://luyuekai.github.io/2018/05/grpc%E5%B0%8F%E8%AE%B0/">
+                <h3 class="media-heading">GRPC小记</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p><strong>有一种落差是你配不上自己的野心，也辜负了所受的苦难。</strong>
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://luyuekai.github.io/2018/05/%E6%AF%8F%E5%91%A8%E4%B8%80%E7%AF%87%E6%97%A5%E8%AE%B0/">
+                <h3 class="media-heading">每周一篇日记</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p><strong>新的五月</strong></p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://luyuekai.github.io/2018/05/%E9%87%8D%E6%96%B0%E6%8B%BE%E8%B5%B7%E5%8D%9A%E5%AE%A2/">
+                <h3 class="media-heading">重新拾起博客</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p><strong>新的五月</strong></p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://luyuekai.github.io/2017/04/effective-java-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%9B%9B/">
+                <h3 class="media-heading">effective java 读书笔记（四）</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p><strong>你是人间的四月天</strong></p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://luyuekai.github.io/2017/04/effective-java-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%89/">
+                <h3 class="media-heading">effective java 读书笔记（三）</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p><strong>你是人间的四月天</strong></p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://luyuekai.github.io/2017/04/effective-java-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C/">
+                <h3 class="media-heading">effective java 读书笔记（二）</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p><strong>你是人间的四月天</strong></p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://luyuekai.github.io/2017/04/nat%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E5%8D%8F%E8%AE%AE%E5%B0%8F%E8%AE%B0/">
+                <h3 class="media-heading">NAT地址转换协议小记</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p><strong>你是人间的四月天</strong></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://luyuekai.github.io/2017/04/effective-java-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/">
+                <h3 class="media-heading">effective java 读书笔记（一）</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p><strong>你是人间的四月天</strong></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://luyuekai.github.io/2017/04/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">
+                <h3 class="media-heading">字符串匹配算法</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p><strong>你是人间的四月天</strong>
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://luyuekai.github.io/2016/04/%E5%8F%96%E5%87%BA%E6%95%B0%E5%AD%97%E7%9A%84%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0/">
+                <h3 class="media-heading">取出数字的各个位数</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p><strong>四月是你的谎言</strong></p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         29 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('http://oneumacbh.bkt.clouddn.com/rawcovercover.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://luyuekai.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/luyuekai.github.io\/2018\/05\/grpc%E5%B0%8F%E8%AE%B0\/';
+          
+            this.page.identifier = '\/2018\/05\/grpc%E5%B0%8F%E8%AE%B0\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'test';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+

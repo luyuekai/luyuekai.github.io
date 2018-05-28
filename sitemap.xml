@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://luyuekai.github.io/2018/05/grpc%E5%B0%8F%E8%AE%B0/</loc>
+    <lastmod>2018-05-27T21:44:08+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://luyuekai.github.io/2018/05/%E6%AF%8F%E5%91%A8%E4%B8%80%E7%AF%87%E6%97%A5%E8%AE%B0/</loc>
     <lastmod>2018-05-27T00:00:00+00:00</lastmod>
   </url>
@@ -168,7 +173,7 @@
   
   <url>
     <loc>https://luyuekai.github.io/archives/2018-05/</loc>
-    <lastmod>2018-05-27T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-27T21:44:08+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -245,13 +250,13 @@
   </url>
   
   <url>
-    <loc>https://luyuekai.github.io/categories/git/</loc>
+    <loc>https://luyuekai.github.io/tags/git/</loc>
     <lastmod>2016-04-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://luyuekai.github.io/tags/git/</loc>
+    <loc>https://luyuekai.github.io/categories/git/</loc>
     <lastmod>2016-04-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -354,7 +359,7 @@
   
   <url>
     <loc>https://luyuekai.github.io/post/</loc>
-    <lastmod>2018-05-27T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-27T21:44:08+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -456,13 +461,19 @@
   
   <url>
     <loc>https://luyuekai.github.io/</loc>
-    <lastmod>2018-05-27T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-27T21:44:08+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://luyuekai.github.io/categories/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/</loc>
     <lastmod>2017-04-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://luyuekai.github.io/categories/%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2018-05-27T21:44:08+08:00</lastmod>
     <priority>0</priority>
   </url>
   
