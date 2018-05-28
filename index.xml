@@ -6,10 +6,20 @@
     <description>Recent content on 听风流水的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 27 May 2018 21:44:08 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 28 May 2018 10:19:11 +0800</lastBuildDate>
     
 	<atom:link href="https://luyuekai.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>自动化部署deploy</title>
+      <link>https://luyuekai.github.io/2018/05/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2deploy/</link>
+      <pubDate>Mon, 28 May 2018 10:19:11 +0800</pubDate>
+      
+      <guid>https://luyuekai.github.io/2018/05/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2deploy/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;有一种落差是你配不上自己的野心，也辜负了所受的苦难。&lt;/strong&gt;
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>GRPC小记</title>
