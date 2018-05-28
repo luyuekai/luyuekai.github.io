@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>技术 on 听风流水的博客</title>
-    <link>https://luyuekai.github.io/categories/%E6%8A%80%E6%9C%AF/</link>
-    <description>Recent content in 技术 on 听风流水的博客</description>
+    <title>Code on 听风流水的博客</title>
+    <link>https://luyuekai.github.io/categories/code/</link>
+    <description>Recent content in Code on 听风流水的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 28 May 2018 10:19:11 +0800</lastBuildDate>
     
-	<atom:link href="https://luyuekai.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://luyuekai.github.io/categories/code/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -28,6 +28,16 @@
       
       <guid>https://luyuekai.github.io/2018/05/grpc%E5%B0%8F%E8%AE%B0/</guid>
       <description>&lt;p&gt;&lt;strong&gt;有一种落差是你配不上自己的野心，也辜负了所受的苦难。&lt;/strong&gt;
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>字符串匹配算法</title>
+      <link>https://luyuekai.github.io/2017/04/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 15 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://luyuekai.github.io/2017/04/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;你是人间的四月天&lt;/strong&gt;
 &lt;/p&gt;</description>
     </item>
     
