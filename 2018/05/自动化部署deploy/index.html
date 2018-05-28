@@ -244,7 +244,7 @@
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://luyuekai.github.io/categories/category">category</a>
+      <a class="category-link" href="https://luyuekai.github.io/categories/%e6%8a%80%e6%9c%af">技术</a>
     
   
 
@@ -264,8 +264,156 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><strong>有一种落差是你配不上自己的野心，也辜负了所受的苦难。</strong>
+              <p><strong>有一种落差是你配不上自己的野心，也辜负了所受的苦难。</strong><br />
 </p>
+
+<p>找完实习，要写大论文了。 可是不知道写啥，实验好难做，自己又一直在逃避。真的是…… 借写博客来麻醉自己啦。</p>
+
+<h4 id="今天研究了一下简化部署博客的脚本">今天研究了一下简化部署博客的脚本</h4>
+
+<p>首先感谢coderzh大大啦。 内容都是copy这位大大的！ 再次感谢！！</p>
+
+<p>放上大大的github地址：  <a href="https://github.com/coderzh/coderzh-hugo-blog">https://github.com/coderzh/coderzh-hugo-blog</a></p>
+
+<p>自动化部署脚本的说明地址：  <a href="http://www.gohugo.org/2015/11/21/hugo-deploy-script/">http://www.gohugo.org/2015/11/21/hugo-deploy-script/</a></p>
+
+<p>放上自己的deploy.py的内容吧：</p>
+<div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># coding:utf-8</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">locale</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;coderzh&#39;</span>
+
+<span class="n">GIT_REPO</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;origin&#39;</span><span class="p">,</span>  <span class="s1">&#39;master&#39;</span><span class="p">,</span> <span class="s1">&#39;git@github.com:luyuekai/luyuekai.github.io.git&#39;</span><span class="p">],</span>
+    <span class="c1"># [&#39;gitcafe&#39;, &#39;gh-pages&#39;, &#39;git@gitcafe.com:coderzh/coderzh-hugo-blog.git&#39;],</span>
+    <span class="c1">#[&#39;coding&#39;,  &#39;gh-pages&#39;, &#39;git@git.coding.net:coderzh/hugo-blog-deployed.git&#39;],</span>
+<span class="p">]</span>
+
+<span class="n">DEPLOY_DIR</span> <span class="o">=</span> <span class="s1">&#39;luyuekai.github.io&#39;</span>
+
+
+<span class="k">class</span> <span class="nc">ChDir</span><span class="p">:</span>
+    <span class="s2">&#34;&#34;&#34;Context manager for changing the current working directory&#34;&#34;&#34;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_path</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">newPath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">new_path</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">savedPath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">newPath</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exception_type</span><span class="p">,</span> <span class="n">exception_value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">savedPath</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">deploy</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+    <span class="n">parent_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">current_dir</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">))</span>
+    <span class="n">public_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">current_dir</span><span class="p">,</span> <span class="s1">&#39;public&#39;</span><span class="p">)</span>
+    <span class="n">commit_msg</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+    <span class="k">with</span> <span class="n">ChDir</span><span class="p">(</span><span class="n">current_dir</span><span class="p">):</span>
+        <span class="c1"># step1 clean</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">public_dir</span><span class="p">):</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">public_dir</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="nb">type</span> <span class="o">==</span> <span class="s1">&#39;auto&#39;</span><span class="p">:</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git fetch origin&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git checkout master&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git reset --hard origin/master&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git clean -fdx&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git submodule init&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git submodule update&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git submodule foreach git pull --rebase origin master&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            
+        <span class="c1"># on windows set TERM=msys</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="s1">&#39;git log -1 --pretty=format:&#34;</span><span class="si">%s</span><span class="s1">&#34;&#39;</span><span class="p">,</span>
+                             <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+        <span class="n">commit_msg</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">communicate</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">getpreferredencoding</span><span class="p">())</span>
+        <span class="c1"># step2 build</span>
+        <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;hugo -v --cacheDir=&#34;./cache&#34;&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="n">deploy_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">parent_dir</span><span class="p">,</span> <span class="n">DEPLOY_DIR</span><span class="p">)</span>
+
+    <span class="c1"># step3 clone if not exists</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">deploy_dir</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">deploy_dir</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">ChDir</span><span class="p">(</span><span class="n">deploy_dir</span><span class="p">):</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git init&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">repo</span> <span class="ow">in</span> <span class="n">GIT_REPO</span><span class="p">:</span>
+                <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git remote add {0} {1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">repo</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">repo</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="nb">type</span> <span class="o">==</span> <span class="s1">&#39;first&#39;</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">ChDir</span><span class="p">(</span><span class="n">deploy_dir</span><span class="p">):</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git init&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">repo</span> <span class="ow">in</span> <span class="n">GIT_REPO</span><span class="p">:</span>
+                <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git remote add {0} {1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">repo</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">repo</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">ChDir</span><span class="p">(</span><span class="n">deploy_dir</span><span class="p">):</span>
+        <span class="c1"># step4 clean and pull</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">GIT_REPO</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git fetch {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">GIT_REPO</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="nb">type</span> <span class="o">==</span> <span class="s1">&#39;first&#39;</span><span class="p">:</span>
+                <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git checkout --orphan temp&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git rm --cached -r .&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git clean -fdx&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git branch -D {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">GIT_REPO</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git checkout -b {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">GIT_REPO</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git checkout {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">GIT_REPO</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git reset --hard {0}/{1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">GIT_REPO</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">GIT_REPO</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git clean -fdx&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+        <span class="c1"># step5 remove all files</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">f</span> <span class="o">!=</span> <span class="s1">&#39;.git&#39;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+                    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+        <span class="c1"># step6 copy new files</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">public_dir</span><span class="p">):</span>
+            <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">public_dir</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+        <span class="c1"># step7 commit and push</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">GIT_REPO</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git add --all&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git commit -a -m &#34;{0}&#34;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">commit_msg</span><span class="p">),</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">repo</span> <span class="ow">in</span> <span class="n">GIT_REPO</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">test</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;git push {0} {1}:{2} -u&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">repo</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">GIT_REPO</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">repo</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;git push {0} {1}:{2} -u&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">repo</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">GIT_REPO</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">repo</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;deploy hugo&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;auto or manual&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-t&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;for test&#39;</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="nb">type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="s1">&#39;manual&#39;</span><span class="p">,</span> <span class="s1">&#39;first&#39;</span><span class="p">]:</span>
+        <span class="n">deploy</span><span class="p">(</span><span class="n">args</span><span class="p">)</span></code></pre></div>
+<p>python真的是门超级超级方便的语言！！</p>
+
+<p>自己运行的时候，直接：</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">python</span> <span class="n">deploy</span><span class="o">.</span><span class="n">py</span> <span class="n">manual</span></code></pre></div>
+<p>就可以啦！</p>
+
+<h3 id="大大的flag">大大的Flag</h3>
+
+<p>下午好好看毕业论文算法源码！！ 加油，别逃避啦，老哥！！</p>
               
             </div>
           </div>
@@ -462,7 +610,7 @@
                   May 5, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><p><strong>有一种落差是你配不上自己的野心，也辜负了所受的苦难。</strong>
+              <div class="media-content hide-xs font-merryweather"><p><strong>有一种落差是你配不上自己的野心，也辜负了所受的苦难。</strong><br />
 </p></div>
             </div>
             <div style="clear:both;"></div>
