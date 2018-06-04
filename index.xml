@@ -6,10 +6,20 @@
     <description>Recent content on 听风流水的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 28 May 2018 10:19:11 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 04 Jun 2018 10:45:20 +0800</lastBuildDate>
     
 	<atom:link href="https://luyuekai.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>六月了啊</title>
+      <link>https://luyuekai.github.io/2018/06/%E5%85%AD%E6%9C%88%E4%BA%86%E5%95%8A/</link>
+      <pubDate>Mon, 04 Jun 2018 10:45:20 +0800</pubDate>
+      
+      <guid>https://luyuekai.github.io/2018/06/%E5%85%AD%E6%9C%88%E4%BA%86%E5%95%8A/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;有一种落差是你配不上自己的野心，也辜负了所受的苦难。&lt;/strong&gt;
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>自动化部署deploy</title>
